@@ -5,7 +5,7 @@ This is the hardware, I/we took out.
 ## year-month-day
 
 - Dupont cables 20 socket to socket (watch https://youtu.be/yXirMBP3x4U for documentation)
-- 1x large breadboard, 1x medium size bredboard (watch https://youtu.be/yXirMBP3x4U for documentation)
+- 1x large breadboard, 1x medium size breadboard (watch https://youtu.be/yXirMBP3x4U for documentation)
 -  ...
 
 ![A picture showing all parts taken out this day.](/images/img01.jpg "A picture showing all parts taken out this day.]")
