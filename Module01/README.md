@@ -15,6 +15,8 @@ Module description
 - Inspiration 2
 
 ## Task Personal Profile
+Moritz Lamkemeyer
+Elektro Beckhoff GmbH
 
 ## Task What is IoT
 
