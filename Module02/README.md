@@ -104,7 +104,8 @@ o	Interaktives Lernen: Simulatoren erlauben das Testen von Code direkt mit virtu
 
 <img width="843" height="443" alt="aufgabe 4 Taster Arduino" src="https://github.com/user-attachments/assets/2a8ff7cb-eb86-4000-8141-950e1b061479" />
 <img width="837" height="445" alt="Aufgabe 4 LED Arduino" src="https://github.com/user-attachments/assets/a4acbc39-1109-4d2f-83d6-75a09f03f40c" />
-<img width="907" height="452" alt="Aufgabe 4 LED2 Arduino" src="https://github.com/user-attachments/assets/1527b543-966a-4656-abea-dbc58fbdf320" />
+<img width="926" height="483" alt="Aufgabe 4 LED2 Arduino" src="https://github.com/user-attachments/assets/beaf6d76-836e-4dce-8110-5e26991f2635" />
+
 
 
 ## Reflection 3
