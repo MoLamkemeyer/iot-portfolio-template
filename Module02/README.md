@@ -209,7 +209,7 @@ void loop() {
 <img width="1536" height="2048" alt="Aufgabe 6 PullUp" src="https://github.com/user-attachments/assets/390fa60f-bf03-481b-a23e-2558458d53be" />
 
 
-## Task 7
+## Task 7 Mit Teampartner
 
 1. Das Relaismodul verstehen
 •	Was ist ein Relais? Ein elektrisch betätigter Schalter. Mit einem kleinen, isolierten Steuerstrom (3,3 V von der MCU) kann ein mechanischer Kontakt elektromagnetisch umgelegt werden, um einen völlig separaten, großen Laststromkreis (z. B. 12 V für das Magnetschloss oder 230 V) zu schalten.
@@ -269,7 +269,51 @@ void loop() {
     digitalWrite(D7, HIGH);
   }
 }
- 
+
+## Task 8 Mit Teampartner
+
+Was ist PWM?
+PWM steht für Pulsweitenmodulation. Da ein Mikrocontroller-Pin rein digital nur HIGH (3,3 V) oder LOW (0 V) ausgeben kann, simuliert man eine analoge Spannung durch extrem schnelles Umschalten zwischen diesen beiden Zuständen. Das Verhältnis zwischen der Einschaltzeit zur Gesamtaufzeit nennt man Tastgrad (Duty Cycle). Je länger der Pin auf HIGH steht, desto heller leuchtet die LED.
+
+
+<img width="1536" height="2048" alt="Aufgabe8" src="https://github.com/user-attachments/assets/5ec62ce7-58c8-4abf-8db0-81e420107f2c" />
+<img width="1536" height="2048" alt="Aufgabe 8" src="https://github.com/user-attachments/assets/a50bc833-5517-4b53-9e8a-079898050cf1" />
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(D6, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  for (int i = 0; i <= 255; i++)
+  {
+    analogWrite(D6, i);
+    delay(10);
+  }
+  delay(2000);
+  for (int i = 255; i >= 0; i--)
+  {
+    analogWrite(D6, i);
+    delay(10);
+  }
+  delay(2000);
+}
+
+## Task 9 Mit Teampartner
+
+Bus-Systeme & Peripheriekommunikation (Kurzübersicht für dein Portfolio)
+•	GPIO / PWM: Allgemeine digitale Ein-/Ausgangspins für einfache Schaltsignale (Taster, Relais) oder zeitkritische Pulsmodulationen (Dimmen, Servos).
+•	I2C (Inter-Integrated Circuit): Ein synchroner, halbduplexer 2-Draht-Bus (SDA für Daten, SCL für den Takt). Er ist master-slave-basiert und erlaubt es, dutzende Sensoren (z. B. Displays, Barometer) parallel über dieselben zwei Leitungen anzusprechen.
+•	SPI (Serial Peripheral Interface): Ein sehr schneller, synchroner 4-Draht-Bus (MOSI, MISO, SCK, CS). Ideal für datenintensive Anwendungen wie SD-Kartenleser oder TFT-Displays.
+•	UART (Universal Asynchronous Receiver-Transmitter): Eine asynchrone Punkt-zu-Punkt-Verbindung über zwei Leitungen (TX und RX). Wird standardmäßig für die serielle Kommunikation mit dem PC (USB-Schnittstelle) genutzt. RS232/RS485 sind industrielle Pegel-Erweiterungen davon.
+•	OneWire (Eindraht-Bus): Ein von Dallas Semiconductor entwickelter Bus, der neben Masse nur eine einzige Datenleitung benötigt (z. B. für den Temperatursensor DS18B20).
+Achtung (Das Spiegelbild): Achte beim Stecken der Komponenten auf dem Breadboard immer darauf, ob du die Pins von oben (Top View) oder von unten (Bottom View auf die Lötpunkte) betrachtet hast. Verwechselt man die Seiten, spiegelt man versehentlich die Spannungsversorgung (VCC und GND), was die Bauteile sofort zerstören kann!
+
+UART siehe Aufgabe 7
+GPIO / PWM siehe Aufgabe 5 und 8
+
+
 ## Reflection 3
 [Reflection 3](/Reflections/ref03.md)
 
