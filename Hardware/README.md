@@ -2,8 +2,8 @@
 
 This is the hardware, I/we took out.
 - Arduino Kit
-- Wemos
-- Kabel
+- Wemos D1 mini
+- USB-Kabel
 
 ## year-month-day
 
