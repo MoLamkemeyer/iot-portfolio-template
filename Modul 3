@@ -1,1 +1,42 @@
+Für Phase 1:
+1. OpenWrt erforschen
+Was ist OpenWrt? OpenWrt ist ein Linux-basiertes Open-Source-Betriebssystem, das speziell für eingebettete Geräte wie Router, Access Points und IoT-Gateways entwickelt wurde. Anstatt der oft stark eingeschränkten und unsicheren Standard-Firmware der Hersteller bietet OpenWrt die vollständige Kontrolle über das Gerät.
+Warum ist OpenWrt im IoT-Bereich so wichtig?
+•	Paketverwaltung (opkg): Ähnlich wie bei Ubuntu (apt) können zusätzliche Softwarepakete direkt auf dem Router installiert werden. Dadurch lässt sich der Router in einen MQTT-Broker (Mosquitto), einen Webserver oder eine Integrationsplattform verwandeln.
+•	Erweiterte Netzwerkkontrolle: Es ermöglicht komplexe Routing-Konfigurationen, das Erstellen isolierter VLANs (z. B. um unsichere Smart-Home-Geräte vom restlichen Netzwerk zu trennen) und detaillierte Firewall-Regeln.
+•	Ressourceneffizienz: Es ist extrem schlank programmiert und läuft stabil auf minimaler Hardware (wie unserem Mango-Router).
+Die Benutzeroberfläche: LuCI
+LuCI ist die standardmäßige, webbasierte grafische Benutzeroberfläche (Web-GUI) für OpenWrt. Sie ermöglicht es, alle grundlegenden und fortgeschrittenen Konfigurationen komfortabel im Browser vorzunehmen, ohne zwingend die Linux-Kommandozeile (CLI) über SSH nutzen zu müssen.
+2. LAN vs. WAN-Vergleich
+Jeder IoT-Router besitzt physisch und logisch getrennte Schnittstellen, um den Datenverkehr zu ordnen und das lokale Netzwerk abzusichern.
+LAN (Local Area Network)
+Das lokale Netzwerk verbindet alle Geräte innerhalb eines begrenzten Bereichs (z. B. dein Team-Arbeitsplatz im HSBI-Labor oder deine Wohnung) untereinander.
+•	Schnittstelle am Router: Gekennzeichnet als LAN-Port (und das lokale Wi-Fi).
+•	Geräte: Dein Programmier-Laptop, deine Wemos-Knoten, dein Smartphone.
+•	Sicherheit: Standardmäßig vertrauenswürdig. Geräte im LAN können ohne Einschränkungen direkt miteinander kommunizieren (z. B. dein Laptop mit dem MQTT-Broker auf dem Wemos).
+•	IP-Bereich im Kurs: 192.168.14.xxx
+WAN (Wide Area Network)
+Das Weitverkehrsnetzwerk verbindet dein lokales LAN mit der Außenwelt oder einem übergeordneten Netzwerk (z. B. dem Campus-Netzwerk der HSBI oder dem weltweiten Internet).
+•	Schnittstelle am Router: Gekennzeichnet als WAN-Port (oft gelb oder separat beschriftet).
+•	Verbindung: Hier kommt das Netzwerkkabel hinein, das zur Ethernet-Dose im Raum führt.
+•	Sicherheit: Nicht vertrauenswürdig. Die integrierte Firewall von OpenWrt blockiert standardmäßig jeglichen eingehenden Datenverkehr vom WAN-Port in das LAN, um deine IoT-Geräte vor Angriffen von außen zu schützen.
+3. DHCP und DNS erforschen
+Damit Geräte im Netzwerk ohne manuellen Konfigurationsaufwand sofort miteinander kommunizieren können, nutzt OpenWrt den kombinierten Hintergrunddienst dnsmasq, welcher DHCP und DNS bereitstellt.
+DHCP (Dynamic Host Configuration Protocol)
+DHCP ist dafür zuständig, Geräten beim Beitritt in ein Netzwerk vollautomatisch alle notwendigen Netzwerkeinstellungen zuzuweisen.
+•	Wie es funktioniert: Sobald du deinen Laptop per Kabel oder WLAN mit dem Router verbindest, sendet dieser einen Ruf in das Netzwerk (DHCP Discover). Der Router antwortet und teilt dem Laptop automatisch folgende Daten mit:
+1.	Eine freie, einzigartige IP-Adresse (z. B. 192.168.14.120).
+2.	Die Subnetzmaske (standardmäßig 255.255.255.0), um zu wissen, wer sich im selben Netz befindet.
+3.	Die Gateway-IP (192.168.14.1), also die Adresse des Routers selbst, über den alle Daten ins Internet geschickt werden müssen.
+4.	Die DNS-Server-IP.
+DNS (Domain Name System)
+Das DNS ist das „Telefonbuch“ des Netzwerks. Da Computer intern nur mit IP-Adressen (wie 192.168.14.1) arbeiten, Menschen sich Namen aber besser merken können, übersetzt DNS lesbare Domainnamen in die zugehörigen IP-Adressen.
+•	Bedeutung für unser IoT-Projekt: Wenn dein Wemos-Mikrocontroller Daten an dein Node-RED-Dashboard schicken soll, musst du im Code nicht zwingend die IP-Adresse fest eintragen. Du kannst stattdessen den in Phase 1 vergebenen Hostnamen deines Laptops oder Routers verwenden (z. B. http://team5-gateway.local). Der DNS-Dienst des Routers löst diesen Namen dann intern sekundenschnell in die IP 192.168.14.1 auf.
+
+
+Phase 2: WLAN-Zugangspunkt (Access Point) einrichten
+
+Regulierung & Kanalauswahl (ETSI / Deutschland-Anpassung)
+•	Kanäle in Deutschland: Im 2,4-GHz-Band stehen in Deutschland (nach ETSI-Standard) die Kanäle 1 bis 13 zur Verfügung (im Gegensatz zu den USA, wo Kanal 12 und 13 illegal sind).
+•	Auswahl des Kanals im Kursraum: Da viele Teams gleichzeitig ein Netz aufbauen, müssen wir uns koordinieren. Die Kanäle 1, 6 und 11 sind die einzigen drei Kanäle im 2,4-GHz-Spektrum, die sich frequenztechnisch nicht überlappen.
 
