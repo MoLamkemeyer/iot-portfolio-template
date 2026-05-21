@@ -179,10 +179,58 @@ Anstatt einen externen Widerstand mühsam auf dem Steckbrett zu verdrahten, nutz
 <img width="900" height="1600" alt="WhatsApp Image 2026-05-21 at 12 59 37" src="https://github.com/user-attachments/assets/3ed13395-9142-4f8a-a724-c672a17a1303" />
 
 INPUT_PULLUP:
+
+// digital pin 2 has a pushbutton attached to it. Give it a name:
+int pushButton = 4;
+
+// the setup routine runs once when you press reset:
+void setup() {
+  // initialize serial communication at 9600 bits per second:
+  Serial.begin(9600);
+  // make the pushbutton's pin an input:
+  pinMode(pushButton, INPUT_PULLUP);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+  if (digitalRead(pushButton))
+  {digitalWrite(LED_BUILTIN,HIGH);}
+  else
+  {digitalWrite(LED_BUILTIN,LOW);} 
+  // read the input pin:
+  int buttonState = digitalRead(pushButton);
+  // print out the state of the button:
+  Serial.println(buttonState);
+  delay(1);  // delay in between reads for stability
+}
+
 <img width="1536" height="2048" alt="Aufgabe 6 PullUp 1" src="https://github.com/user-attachments/assets/c8ce8ac0-fe05-4ced-8597-55bc0f3e8b96" />
 <img width="1536" height="2048" alt="Aufgabe 6 PullUp" src="https://github.com/user-attachments/assets/390fa60f-bf03-481b-a23e-2558458d53be" />
 
 
+## Task 7
+
+1. Das Relaismodul verstehen
+•	Was ist ein Relais? Ein elektrisch betätigter Schalter. Mit einem kleinen, isolierten Steuerstrom (3,3 V von der MCU) kann ein mechanischer Kontakt elektromagnetisch umgelegt werden, um einen völlig separaten, großen Laststromkreis (z. B. 12 V für das Magnetschloss oder 230 V) zu schalten.
+•	Steuerseite vs. Schaltseite: * Steuerseite: Hat Pins für VCC (Stromversorgung), GND (Masse) und IN (Signal von der MCU). Sie ist galvanisch getrennt.
+o	Schaltseite: Besitzt drei Schraubklemmen: COM (Common/Gemeinsamer Kontakt), NO (Normally Open / im Ruhezustand offen) und NC (Normally Closed / im Ruhezustand geschlossen).
+•	Standardzustand des Magnetschlosses: Ein Solenoid-Zutrittsschloss benötigt Strom, um den Riegel einzuziehen (Normally-Locked / Ruhestromlos geschlossen). Daher verdrahten wir die externe 12V-Stromversorgung über den NO-Kontakt des Relais.
+2. Wichtige Sicherheitswarnung!
+WARNUNG: Das Magnetschloss zieht beim Schalten hohe Stromspitzen und erzeugt beim Abschalten eine gefährliche Induktionsspannung. Es darf niemals direkt an die Pins des Wemos angeschlossen werden! Zudem darf die Spule des Schlosses nicht länger als 0,5 Sekunden (500 ms) aktiviert bleiben, da sie sonst überhitzt und durchbrennt!
+
+Funktionsweise des Magnetverriegelungsschlosses 
+Ein elektronisches Hubmagnet-Schloss basiert auf dem Prinzip des Elektromagnetismus. Im Inneren des Gehäuses befindet sich eine Spule (Drahtwicklung) und ein beweglicher Eisenkern (der Schließbolzen), der von einer mechanischen Feder nach außen gedrückt wird.
+•	Ruhezustand (Stromlos): Die eingebaute Feder drückt den Bolzen nach draußen. Die Tür ist mechanisch verriegelt. 
+•	Aktivierter Zustand (Unter Strom): Sobald eine Spannung von 12V an die Spule angelegt wird, fließt Strom. Dieser Strom erzeugt ein starkes magnetisches Feld im Inneren. Die magnetische Kraft zieht den Eisenbolzen entgegen der Federkraft in das Gehäuse hinein. Die Tür ist entriegelt. 
+Wichtige Sicherheitswarnung aus dem Labor!
+ACHTUNG (Zerstörungsgefahr): Die Magnetspule ist für den Kurzzeitbetrieb ausgelegt. Wird die Spule länger als 0,5 Sekunden (500 ms) dauerhaft mit Strom versorgt, erhitzte sie sich extrem stark, die Isolierung des Drahtes schmilzt und das Schloss brennt durch! Im Code muss das Ausschalten zwingend über ein kurzes delay(500) sichergestellt werden. 
+2. Die Standardzustände im Systemkontext
+Beim Aufbau eines Zutrittskontrollsystems (z. B. an der Erste-Hilfe-Station) müssen wir die Begriffe für die Standardzustände der Hardware exakt trennen:
+•	Schloss-Zustand: Normally-Locked (Ruhestromlos geschlossen): Das Schloss ist im unbestromten Zustand zu. Fällt der Strom im Gebäude aus, bleibt das Schloss verriegelt. 
+•	Relais-Anschluss: Normally-Open (NO / Arbeitskontakt): Das Relais schaltet die externe 12V-Leitung zum Schloss erst dann durch, wenn es vom Mikrocontroller den aktiven Befehl dazu erhält. 
+•	Relais-Ansteuerung: Active-Low: Die Steuerplatine des Relais zieht an, wenn der Wemos-Pin auf LOW (0V) gezogen wird.
+ 
 ## Reflection 3
 [Reflection 3](/Reflections/ref03.md)
 
