@@ -230,6 +230,45 @@ Beim Aufbau eines Zutrittskontrollsystems (z. B. an der Erste-Hilfe-Station) mü
 •	Schloss-Zustand: Normally-Locked (Ruhestromlos geschlossen): Das Schloss ist im unbestromten Zustand zu. Fällt der Strom im Gebäude aus, bleibt das Schloss verriegelt. 
 •	Relais-Anschluss: Normally-Open (NO / Arbeitskontakt): Das Relais schaltet die externe 12V-Leitung zum Schloss erst dann durch, wenn es vom Mikrocontroller den aktiven Befehl dazu erhält. 
 •	Relais-Ansteuerung: Active-Low: Die Steuerplatine des Relais zieht an, wenn der Wemos-Pin auf LOW (0V) gezogen wird.
+
+<img width="1536" height="2048" alt="Aufgabe 7" src="https://github.com/user-attachments/assets/08659746-f2b4-4a9c-aad5-2e144f3adfa3" />
+
+Der passende Code zum Bild
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(D6, INPUT);
+  pinMode(D7, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  digitalWrite(D7, HIGH);
+  delay(400);
+  digitalWrite(D7, LOW);
+  delay(2000);
+}
+
+Mit Taster: 
+
+<img width="1536" height="2048" alt="Aufgabe 7 mit taster" src="https://github.com/user-attachments/assets/174b9260-f9e9-4443-a569-5e8a92879ff5" />
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(D6, INPUT_PULLUP);
+  pinMode(D7, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (digitalRead(D6))
+  {
+    digitalWrite(D7, LOW);
+  }
+  else
+  {
+    digitalWrite(D7, HIGH);
+  }
+}
  
 ## Reflection 3
 [Reflection 3](/Reflections/ref03.md)
