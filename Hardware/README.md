@@ -1,6 +1,9 @@
 # Hardware
 
 This is the hardware, I/we took out.
+- Arduino Kit
+- Wemos
+- Kabel
 
 ## year-month-day
 
