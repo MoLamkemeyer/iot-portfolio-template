@@ -1,3 +1,5 @@
+<img width="900" height="1600" alt="WhatsApp Image 2026-05-21 at 12 59 37" src="https://github.com/user-attachments/assets/42b4d5ba-015c-4405-b3a1-15f66ecc8ba0" />
+<img width="900" height="1600" alt="WhatsApp Image 2026-05-21 at 12 59 37" src="https://github.com/user-attachments/assets/d7495b5a-7c55-4807-8617-bd252645d102" />
 # Module 2
 
 We are going to show here notes for Task 1, 2, 3, 4, and 5 to prove
@@ -174,7 +176,11 @@ Ein Pull-up-Widerstand ist ein Widerstand, der eine Signalleitung mit der positi
 Lösung über die interne Hardware (INPUT_PULLUP)
 Anstatt einen externen Widerstand mühsam auf dem Steckbrett zu verdrahten, nutzt man den im ESP8266 eingebauten Pull-up-Widerstand. Der Taster wird einfach zwischen D3 und GND angeschlossen.
 
+<img width="900" height="1600" alt="WhatsApp Image 2026-05-21 at 12 59 37" src="https://github.com/user-attachments/assets/3ed13395-9142-4f8a-a724-c672a17a1303" />
 
+INPUT_PULLUP:
+<img width="1536" height="2048" alt="Aufgabe 6 PullUp 1" src="https://github.com/user-attachments/assets/c8ce8ac0-fe05-4ced-8597-55bc0f3e8b96" />
+<img width="1536" height="2048" alt="Aufgabe 6 PullUp" src="https://github.com/user-attachments/assets/390fa60f-bf03-481b-a23e-2558458d53be" />
 
 
 ## Reflection 3
