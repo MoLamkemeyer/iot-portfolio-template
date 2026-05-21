@@ -45,10 +45,10 @@
 
 Author: <replace these pointy brackets with your full name>
 
-My partner is <replace these pointy brackets with their full name>, [portfolio link](https://github.com/partner/iot-portfolio)
+My partner is <replace these pointy brackets with their full name>, [portfolio link]](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling))
 
 In my team for the final project, I also had the following members:
-- <replace these pointy brackets with their full name>, [portfolio link](https://github.com/partner/iot-portfolio)
+- <replace these pointy brackets with their full name>, [portfolio link]([](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling))
 - <replace these pointy brackets with their full name>, [portfolio link](https://github.com/partner/iot-portfolio)
 
 Our team final project repository is [here](https://github.com/somewhere/final-iot-project)
