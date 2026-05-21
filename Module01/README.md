@@ -11,8 +11,10 @@ Module description
 
 ## Task Inspirations
 
-- Inspiration 1
-- Inspiration 2
+- Inspiration 1: Der smarte WG-Heizwächter (Klima- & Energiemanagement) Ein ESP32-basiertes System für schlecht isolierte Studentenfehnhäuser oder WGs. Ein Kontaktsensor am Fenster erkennt, wenn gelüftet wird, und ein kleiner Servomotor dreht das Heizungsventil automatisch zu, um Energieverschwendung zu vermeiden. Wenn das Fenster im Winter zu lange offen bleibt, erinnert ein akustischer Signalgeber an das Schließen. 
+
+- Inspiration 2: Der smarte Postkasten (Sensorik & Benachrichtigung): Ein batteriebetriebener ESP32 im Briefkasten. Sobald die Klappe geöffnet wird (Lichtsensor oder Kontaktsensor), wacht der Controller auf, verbindet sich kurz mit dem WLAN und schickt dir eine Nachricht aufs Handy („Du hast Post!“). Danach geht er wieder in den Tiefschlaf (Deep Sleep), um Batterie zu sparen.
+
 
 ## Task Personal Profile
 
@@ -21,6 +23,8 @@ TwinCat 3 Structured Text (ST) ist realtiv gut, da man viel in der Firma damit a
 C   - Nur Grundkenntnisse durch das Studium im ersten Semester erlangt.
 C++ - Nur Grundkenntnisse durch das Studium im zweiten Semester erlangt.
 Im bereich Microcontroller gibt es keien Vorkenntnisse. 
+
+•	Bisheriges Mikrocontroller-Wissen: Meine Erfahrung mit MCUs ist noch am Anfang. Ich weiß, was ein Arduino oder ein Raspberry Pi ist, habe aber noch keine tiefergehenden, eigenständigen Projekte mit dem ESP32 oder nackter Hardware umgesetzt. Das Zusammenspiel von Registern, GPIO-Pins und elektronischen Bauteilen (Sensoren/Aktoren) möchte ich in diesem Kurs praktisch erlernen. 
 
 Kreative Fähigkeiten (Creative Qualities)
 Mir macht es großen Spaß, völlig neue Sachen zu erfinden, reale Probleme systematisch zu analysieren und innovative Produktlösungen zu entwickeln. In den vergangenen Semestern konnte ich diese Stärke bereits erfolgreich in interdisziplinären Modulen einbringen, bei denen wir marktfähige Produkte von Grund auf konzipieren und vor einer Jury bestmöglich pitchen mussten.
@@ -36,12 +40,10 @@ Erwartungen:
 Generell macht es mir Spaß neue Ideen auszudenken und diese durchzugehen bis zum Endprodukt. Mit den neuen Erkenttnissen aus dem Kurs möchte ich mein Wissen ausbreiten und vertiefen und diese in meinen Lieblinsgsektoren wie Fussball und SPort sowie der Immobiliensektor erweitern. 
 
 Meine Erwartungen an diesen Kurs konzentrieren sich auf das Zusammenspiel von kreativer Produktentwicklung und technischer Umsetzung:
-Praxisnahes Troubleshooting & Hardware-Verständnis: 
-Ich möchte lernen, wie man platinenspezifische Besonderheiten und Einschränkungen von Mikrocontrollern systematisch analysiert. 
-Beherrschung effizienter IoT-Protokolle:
-Ich erwarte, tiefere Einblicke in ressourcenschonende Kommunikationswege wie MQTT (Publish/Subscribe) sowie Bussysteme (SPI, UART) zu gewinnen, um Datenströme schnell und stabil zu verarbeiten.
+Ich erwarte einen steilen, aber extrem spannenden Lernprozess in diesem kompakten Blockkurs. Ich möchte lernen, wie man eingebettete Systeme stabil programmiert, wie die drahtlose Kommunikation (WLAN/MQTT) funktioniert und wie man aus einzelnen elektronischen Komponenten ein funktionierendes Gesamtsystem baut.
+
 Prototyping für eigene Innovationen: 
-Mein Ziel ist es, das gelernte Wissen über autarke Ad-hoc-Netzwerke (wie mit dem Mango-Router) zu nutzen, um meine kreativen Produktideen aus den Vorsemestern – wie autonome Robotiksysteme für das Handwerk oder vernetzte Gadgets für den Sport- und Immobiliensektor, als funktionstüchtige IoT-Prototypen realisieren zu können.
+Mein Ziel ist es, das gelernte Wissen über autarke Ad-hoc-Netzwerke (wie mit dem Router) zu nutzen, um meine kreativen Produktideen aus den Vorsemestern, wie autonome Robotiksysteme für das Handwerk oder vernetzte Gadgets für den Sport- und Immobiliensektor, als funktionstüchtige IoT-Prototypen realisieren zu können.
 
 ## Task What is IoT
 
