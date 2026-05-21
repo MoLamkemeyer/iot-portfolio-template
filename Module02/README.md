@@ -316,5 +316,5 @@ GPIO / PWM siehe Aufgabe 5 und 8
 
 ## Reflection 3
 [Reflection 3](/Reflections/ref03.md)
-siehe Reflexion 1 in Modul 1: Es ist eine zusammenfassende Reflexion des gesamten ersten Tages des Blockkurs
+siehe Reflexion 1 in Modul 1: Es ist eine zusammenfassende Reflexion des gesamten ersten Tages des Blockkurs.
 
