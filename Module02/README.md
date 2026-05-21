@@ -106,6 +106,75 @@ o	Interaktives Lernen: Simulatoren erlauben das Testen von Code direkt mit virtu
 <img width="837" height="445" alt="Aufgabe 4 LED Arduino" src="https://github.com/user-attachments/assets/a4acbc39-1109-4d2f-83d6-75a09f03f40c" />
 <img width="926" height="483" alt="Aufgabe 4 LED2 Arduino" src="https://github.com/user-attachments/assets/beaf6d76-836e-4dce-8110-5e26991f2635" />
 
+## Task 5
+1. Portadressierungsschemata
+Beim ESP8266/Wemos D1 Mini muss strikt zwischen zwei Nummerierungen unterschieden werden:
+•	Board-Pin-Bezeichnung (Siebdruck): Das sind die auf die Platine aufgedruckten Namen (z. B. D0, D1, D4, D6).
+•	GPIO-Nummerierung (General Purpose Input Output): Die tatsächliche interne Registernummer des ESP8266-Chips, die vom Prozessor direkt angesprochen wird.
+•	Arduino-Abstraktion: Die Arduino-IDE erlaubt es dank der Board-Definitionen, direkt das Alias D6 im Code zu schreiben. Nutzt man andere Frameworks, muss oft die nackte GPIO-Nummer verwendet werden.
+2. GPIO- und Board-Pin-Nummer für D6
+Anhand des Pinout-Diagramms ergibt sich:
+•	Board-Pin: D6
+•	Zugehörige interne GPIO-Nummer: GPIO12
+
+<img width="1536" height="2048" alt="Aufgabe6" src="https://github.com/user-attachments/assets/dbb43cc6-e915-4b2a-b559-1da3dee4b391" />
+
+Ab jetzt muss der Nodemcu benutzt werden, da der Wemos D1 mini nicht funktionfähig ist mit dem Blinkprogramm. Nach Besprechung mit dem 2. Tutor ist dies aber auch in Ordnung und das Problem entstehe immer mal wieder auf verschiednen Rechner. Nach dem Versuch den Fehler zu beheben, hat man sich dazu entschlossen von Wemos D1 mini auf Nodemcu zu wechseln. 
+<img width="1200" height="1600" alt="Aufgabe 5 blink LED" src="https://github.com/user-attachments/assets/fd5c6891-94b7-4438-9e6f-00bf81a0913a" />
+
+Gleichzeitiges Blinken mit Anschluss D5: (siehe Bild oben)
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(5, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);  // change state of the LED by setting the pin to the HIGH voltage level
+  digitalWrite(5, HIGH); 
+  delay(1000);                      // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(5, LOW);   // change state of the LED by setting the pin to the LOW voltage level
+  delay(1000);                      // wait for a second
+}
+
+Abwechselndes Blinken mit Anschluss D5: 
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(5, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);  // change state of the LED by setting the pin to the HIGH voltage level
+  digitalWrite(5, LOW); 
+  delay(1000);                      // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(5, HIGH);   // change state of the LED by setting the pin to the LOW voltage level
+  delay(1000);                      // wait for a second
+}
+
+<img width="1536" height="2048" alt="Aufgabe 5 abwechselndes blinken2" src="https://github.com/user-attachments/assets/7b6eb024-9674-4ffc-a454-cb24ee6e35dc" />
+<img width="1536" height="2048" alt="Aufgabe 5 abwechselndes blinken1" src="https://github.com/user-attachments/assets/a15d1e63-6e2a-46ac-bd4a-14169214d551" />
+
+Füge eine weitere synchrone LED hinzu auf D2:
+
+<img width="900" height="1600" alt="Aufgabe 5 weitere Led 1" src="https://github.com/user-attachments/assets/2cc5ca5a-db54-455c-a2d7-3505e2a78026" />
+<img width="1152" height="2048" alt="Aufgabe 5 weitere LED" src="https://github.com/user-attachments/assets/2ec620b2-dba0-44ec-af4c-cc97626e86de" />
+
+
+## Task 6
+
+Was ist ein Pull-up-Widerstand?
+Ein Pull-up-Widerstand ist ein Widerstand, der eine Signalleitung mit der positiven Versorgungsspannung (hier 3,3 V) verbindet. Er sorgt für einen definierten HIGH-Zustand auf der Leitung, solange der Taster nicht gedrückt ist. Ohne diesen Widerstand würde der Pin im offenen Zustand „schweben“ (Floating Pin) und durch elektromagnetische Störungen unkontrolliert zwischen HIGH und LOW hin- und herspringen.
+Lösung über die interne Hardware (INPUT_PULLUP)
+Anstatt einen externen Widerstand mühsam auf dem Steckbrett zu verdrahten, nutzt man den im ESP8266 eingebauten Pull-up-Widerstand. Der Taster wird einfach zwischen D3 und GND angeschlossen.
+
+
 
 
 ## Reflection 3
