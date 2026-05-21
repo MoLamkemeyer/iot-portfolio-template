@@ -47,3 +47,34 @@ Regulierung & Kanalauswahl (ETSI / Deutschland-Anpassung)
 •	Kanäle in Deutschland: Im 2,4-GHz-Band stehen in Deutschland (nach ETSI-Standard) die Kanäle 1 bis 13 zur Verfügung (im Gegensatz zu den USA, wo Kanal 12 und 13 illegal sind).
 •	Auswahl des Kanals im Kursraum: Da viele Teams gleichzeitig ein Netz aufbauen, müssen wir uns koordinieren. Die Kanäle 1, 6 und 11 sind die einzigen drei Kanäle im 2,4-GHz-Spektrum, die sich frequenztechnisch nicht überlappen.
 
+
+MQTT: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
