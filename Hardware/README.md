@@ -17,3 +17,6 @@ This is the hardware, I/we took out.
 
 TODO: here will be a table showing different connection options like serial (uart/rs232), i2c, onewire, pwm, ... 
 and corresponding wiring documentation (update table when you get new and/or interesting parts)
+
+
+Aufgabe 9 verlinken
