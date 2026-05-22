@@ -50,6 +50,8 @@ It is [here][(https://github.com/partner/iot-portfolio/Module02/Readme.md#task-2
 
 ## Reflection 2
 [Reflection 2](/Reflections/ref02.md)
+Man findet die zusammenfassende Reflexion in Reflexion 1 in Modul 1
+
 
 ## Task 3
 1. Das Kaffee- & MCU-Rätsel (Video-Inspiration)
