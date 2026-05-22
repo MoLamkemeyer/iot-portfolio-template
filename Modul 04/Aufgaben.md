@@ -3,7 +3,7 @@ Aufgabe 1. Fehlersuche und einfaches Debugging (Crash-Labor)
 •	Nullzeiger-Dereferenzierung (Null Pointer Dereference): Wenn im Code versucht wird, auf eine Speicheradresse zuzugreifen, die auf NULL (0) zeigt, stürzt der Prozessor sofort ab. Im seriellen Monitor (auf 115200 Baud gestellt) wird ein sogenannter „Fatal Exception“ (z. B. Cause 28 / LoadProhibited) ausgegeben, gefolgt von einem Stack Dump und einem automatischen Software-Reset. 
 
 
-Fehlerhafter code:
+- Fehlerhafter code:
 
 char* super_message;
 
@@ -31,7 +31,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 }
 
 
-Ausgabe: 
+- Ausgabe: 
 
 WiFi connected
 IP address: 
@@ -60,5 +60,5 @@ sp: 3ffffdf0 end: 3fffffd0 offset: 0150
 <<<stack<<<
 
 
-Korrigierter Code: 
+- Korrigierter Code: 
 
