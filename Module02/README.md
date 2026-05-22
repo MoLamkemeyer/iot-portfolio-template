@@ -210,6 +210,9 @@ void loop() {
 <img width="1536" height="2048" alt="Aufgabe 6 PullUp 1" src="https://github.com/user-attachments/assets/c8ce8ac0-fe05-4ced-8597-55bc0f3e8b96" />
 <img width="1536" height="2048" alt="Aufgabe 6 PullUp" src="https://github.com/user-attachments/assets/390fa60f-bf03-481b-a23e-2558458d53be" />
 
+Alle Aufgaben wurden im Zusammenarbeit mit meinen Teampartner gemacht ab Aufgabe 7 
+<Frederik Bröckling>, [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling)
+
 
 ## Task 7 Mit Teampartner
 
