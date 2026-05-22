@@ -42,7 +42,8 @@ Reflexion an den Dozenten:
 
 - Der gesamte Input ist etwas viel aufeinmal und bei der langen Unterrichtszeit ist es schwer sich lange gut zu konzentrieren, sodass man irgendwann dazu neigt, dass man hauptsache schnell fertig werden möchte.
 - Es wäre gut, wenn man mehr zusammen als Klasse die Aufgaben durch geht und Erklärungen dazu auf deutsch bekommt während der Vorlesung, da man beim selbstständigen Arbeiten nicht immer weiß, ob man wirklich alles richtig gemacht und verstanden hat und es ist deutlisch schwerer den Unterricht auf Englisch zu verfolgen.
-- Meiner Meinung nach ist es manchmal besser weniger vom Inhalt zu machen, aber dafür der Input intensiv, sicher und klar von der Arbeitsweise ist, wie man arbeitet. Es nterscheiden sich viele Studenten von den Wissensstand, was es für Sie etwas schwerer macht, aber gearde die Leute die damit noch nicht so sicher sind wie andere hängen oftmals hinterher und werden etwas vernachlässigt, weil man sich eher den guten Studenten anpasst. 
+- Meiner Meinung nach ist es manchmal besser weniger vom Inhalt zu machen, aber dafür der Input intensiv, sicher und klar von der Arbeitsweise ist, wie man arbeitet. Es nterscheiden sich viele Studenten von den Wissensstand, was es für Sie etwas schwerer macht, aber gearde die Leute die damit noch nicht so sicher sind wie andere hängen oftmals hinterher und werden etwas vernachlässigt, weil man sich eher den guten Studenten anpasst.
+- Es ist etwas schwerer durch alle Dateien durch ein neues Programm wie Github durchzufinden. Das "frisst" deutlich mehr Zeit in der Vorbereitung und Nachbereitung zu Beginn des Moduls. Irgendwann wird man das Programm allerdings auch drauf haben und man hat wieder was neues gelernt. Also hat es zu Beginn erst schwächen und nachher geht man aber mit stärken heraus.
 
 
 
