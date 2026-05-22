@@ -19,7 +19,7 @@ Protokolleffizienz schlägt Overhead: Das Kennenlernen des MQTT-Protokolls im Ve
 
 Mein Rat an zukünftige Studierende: Vertraut nicht blind darauf, dass ein Pin, der auf dem Wemos D1 Mini funktioniert, eins zu eins auf die NodeMCU übertragen werden kann. Schaut vor jedem Schaltungsaufbau zwingend in das exakte Pin-Mapping-Datenblatt des jeweiligen Board-Herstellers und messt Spannungsreihen im Zweifel lieber einmal zu viel nach.
 
-2. Was war gut? (Erfolge und Stärken)
+2. Was ist gut gelaufen? (Erfolge und Stärken)
 Besonders positiv war der schnelle Erfolg bei der vertikalen Systemintegration in Phase 4. Es war extrem motivierend zu sehen, wie ein selbst aufgebautes, vom Campus-Netzwerk völlig entkoppeltes Ad-hoc-Intranet über den OpenWrt-basierten Router stabil funktionierte. Die Steuerung einer externen LED und das synchrone Abgreifen eines Taster-Status in Echtzeit über den MQTT Explorer zu beobachten, hat die Brücke zwischen grauer Netzwerktheorie und physischer Hardware perfekt geschlagen. Auch das Schreiben von sauberem, minimalistischem C++ Code hat sehr gut funktioniert mit der Hilfe meines Teampartners. Da hab eich nochmal Unterschiede gemerkt, dass er stärker in der Programmiersprach ist, was mir aber wiederum gut tut, da er mir sehr viel beibringen kann und ich aktiv mit ihm zusammen das Programm noch besser erlerne und vertiefe.
 
 3. Was war schwierig und wo gab es Hürden?
@@ -38,7 +38,11 @@ Die Lösung: Wir mussten die Schaltung modifizieren und auf den Pin D4 (GPIO2) a
 
 
 
+Reflexion an den Dozenten:
 
+- Der gesamte Input ist etwas viel aufeinmal und bei der langen Unterrichtszeit ist es schwer sich lange gut zu konzentrieren, sodass man irgendwann dazu neigt, dass man hauptsache schnell ertig wird.
+- Es wäre gut, wenn man mehr zusammen als Klasse die Aufgaben durch geht und Erklärungen dazu auf deutsch bekommt während der Vorlesung, da man beim selbstständigen Arbeiten nicht immer weiß, ob man wirklich alles richtig gemacht und verstanden hat.
+- Meiner Meinung nach ist es manchmal besser weniger vom Inhalt zu machen, aber dafür der Input intensiv, sicher und klar von der Arbeitsweise ist, wie man arbeitet. Es nterscheiden sich viele Studenten von den Wissensstand, was es für Sie etwas schwerer macht, aber gearde die Leute die damit noch nicht so sicher sind wie andere hängen oftmals hinterher und werden etwas vernachlässigt, weil man sich eher den guten Studenten anpasst. 
 
 
 
