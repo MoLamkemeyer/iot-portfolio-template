@@ -309,10 +309,15 @@ void loop() {
 
 Bus-Systeme & Peripheriekommunikation (Kurzübersicht für dein Portfolio)
 •	GPIO / PWM: Allgemeine digitale Ein-/Ausgangspins für einfache Schaltsignale (Taster, Relais) oder zeitkritische Pulsmodulationen (Dimmen, Servos).
+
 •	I2C (Inter-Integrated Circuit): Ein synchroner, halbduplexer 2-Draht-Bus (SDA für Daten, SCL für den Takt). Er ist master-slave-basiert und erlaubt es, dutzende Sensoren (z. B. Displays, Barometer) parallel über dieselben zwei Leitungen anzusprechen.
+
 •	SPI (Serial Peripheral Interface): Ein sehr schneller, synchroner 4-Draht-Bus (MOSI, MISO, SCK, CS). Ideal für datenintensive Anwendungen wie SD-Kartenleser oder TFT-Displays.
+
 •	UART (Universal Asynchronous Receiver-Transmitter): Eine asynchrone Punkt-zu-Punkt-Verbindung über zwei Leitungen (TX und RX). Wird standardmäßig für die serielle Kommunikation mit dem PC (USB-Schnittstelle) genutzt. RS232/RS485 sind industrielle Pegel-Erweiterungen davon.
+
 •	OneWire (Eindraht-Bus): Ein von Dallas Semiconductor entwickelter Bus, der neben Masse nur eine einzige Datenleitung benötigt (z. B. für den Temperatursensor DS18B20).
+
 Achtung (Das Spiegelbild): Achte beim Stecken der Komponenten auf dem Breadboard immer darauf, ob du die Pins von oben (Top View) oder von unten (Bottom View auf die Lötpunkte) betrachtet hast. Verwechselt man die Seiten, spiegelt man versehentlich die Spannungsversorgung (VCC und GND), was die Bauteile sofort zerstören kann!
 
 UART siehe Aufgabe 7
