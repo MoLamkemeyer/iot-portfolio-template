@@ -45,9 +45,8 @@
 
 Author: <replace these pointy brackets with your full name>
 
-Alle Aufgaben wurden in Zusammenarbeit mit <Frederik Bröckling>, [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling) gemacht
+ Mein Partner ist <Frederik Bröckling>, [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling) gemacht
 
-My partner is <Frederik Bröckling>, [Frederik Bröckling] (https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling)
 
 In my team for the final project, I also had the following members:
 - <replace these pointy brackets with their full name>, [https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling]
