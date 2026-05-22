@@ -87,3 +87,23 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
 }
 
+
+**Aufgabe 2: Division durch Null (Division by Zero):**
+
+Im Gegensatz zu klassischen Desktop-Prozessoren (x86/x64), bei denen eine Integer-Division durch Null (1000 / 0) sofort eine unüberwindbare Hardware-Exception auslöst, verhält sich der ESP8266-Chip je nach Datentyp und Compiler-Optimierung manchmal überraschend:
+•	Fließkommazahlen (float / double): Der Prozessor stürzt in der Regel nicht ab, sondern gibt laut IEEE-754-Standard den Wert inf (Unendlich) oder nan (Not a Number) aus.
+•	Ganzzahlen (int / long): Hier führt die Division durch Null auf der Bare-Metal-Ebene des ESP8266 zu einem kritischen Rechenfehler, der den Prozessor blockiert. Der interne Hardware-Wachhund (Watchdog Timer / WDT) merkt, dass der Hauptprozess einfriert, und startet den Controller radikal neu.
+
+
+
+**Aufgabe 3: Zu wenig Speicher (Out of Memory):**
+
+Durch das übermäßige Erzeugen von globalen Objekten oder massiver Nutzung der String-Klasse fragmentiert der Arbeitsspeicher (RAM). Das führt dazu, dass Funktionen wie malloc() fehlschlagen und der Controller unkontrolliert mitten im Betrieb rebootet.
+Ein Mikrocontroller wie der ESP8266 besitzt mit ca. 80 KB verfügbarem RAM einen sehr begrenzten Arbeitsspeicher. Dieser Speicher teilt sich im Wesentlichen in zwei Bereiche:
+
+1.	Der Stack (Stapelspeicher): Hier liegen lokale Variablen, die nach dem Verlassen einer Funktion automatisch gelöscht werden.
+2.	Der Heap (Dynamischer Speicher): Hier wird Speicher zur Laufzeit manuell mit dem Befehl new oder malloc() angefordert.
+   
+Das Problem (Memory Leak): Speicher, der auf dem Heap mit new reserviert wird, bleibt dort so lange blockiert, bis er im Programmcode explizit mit delete wieder freigegeben wird. Ruft man eine Funktion, die new nutzt, immer wieder auf, ohne den Speicher zu löschen, läuft der Heap unaufhaltsam voll, bis kein einziges Byte mehr frei ist.
+Zusätzlich sorgt die wiederholte Verkettung von Objekten der Klasse String für eine starke Speicherfragmentierung, da im Hintergrund ständig neue, größere Speicherblöcke angefordert und alte Blöcke als unbrauchbare „Löcher“ hinterlassen werden.
+
