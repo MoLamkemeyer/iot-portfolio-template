@@ -114,7 +114,7 @@ Zusätzlich sorgt die wiederholte Verkettung von Objekten der Klasse String für
 
 
 
-**Teamarbeit**
+## Teamarbeit
 ## Task 1
 
 serial output:
