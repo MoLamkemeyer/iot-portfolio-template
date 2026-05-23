@@ -1,3 +1,5 @@
+**Reflection 2**
+
 Wichtigste Erkenntnisse & Lessons Learned
 - Das IoTempower-Ökosystem: Spannende und mächtige Erfahrung zu sehen, wie MQTT und Node-RED als universelle Dolmetscher fungieren. Es war faszinierend zu beobachten, wie Nachrichten plattformübergreifend zwischen den Node-RED-Flows und MQTT-Brokern verschiedener Kommilitonen hin- und herwanderten.
 
