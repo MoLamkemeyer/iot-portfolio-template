@@ -8,7 +8,7 @@ Die Funktion millis() ist eines der wichtigsten Werkzeuge in der Arduino-Program
 Sobald der Wemos D1 Mini oder ESP32 Strom bekommt und hochfährt, startet im Hintergrund ein interner Zähler. millis() gibt dir die Millisekunden zurück, die seit diesem Start vergangen sind.
 
 
-Was war gut? (Erfolge und Aha-Erlebnisse)
+Was ist gut gelaufen? (Erfolge und Aha-Erlebnisse)
 
 - Die visuelle Erfolgskontrolle: Es war extrem motivierend zu sehen, wie die gesamte Kette aus Taster, Node-RED-Logik, der Alarm-Warnung, dem OLED-Display am ESP32 und dem pulsierenden 12V-RGB-LED-Streifen auf der Steckplatine in Echtzeit ineinandergriff. Zu sehen, dass das, was man baut und programmiert, real funktioniert, war ein echtes Highlight.
 
