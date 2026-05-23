@@ -114,7 +114,8 @@ Zusätzlich sorgt die wiederholte Verkettung von Objekten der Klasse String für
 
 
 
-## Teamarbeit
+## Teamarbeit 
+mit [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling)
 ## Task 1
 
 serial output:
