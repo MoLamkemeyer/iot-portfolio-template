@@ -30,6 +30,6 @@ Interaktion, Feedback & kollaborative Hürden
 
 Transfer & Zukunftsgedanken (Kritischer Ausblick)
 
-Obwohl die praktischen Versuche im Kleinen perfekt funktionierten, bleibt bei mir als Elektroniker eine zentrale Frage offen: Wie skaliert man das für die Praxis? * Beruflicher Bezug: Wie lässt sich diese IoT-Technik robust und wirtschaftlich in der Haustechnik (Gebäudeautomation) einsetzen?
+Obwohl die praktischen Versuche im Kleinen perfekt funktionierten, bleibt bei mir eine zentrale Frage offen: Wie skaliert man das für die Praxis? * Beruflicher Bezug: Wie lässt sich diese IoT-Technik robust und wirtschaftlich in der Haustechnik (Gebäudeautomation) einsetzen?
 
 - Wunsch an die Dozenten: Um zu verstehen, was im großen Stil nötig ist und welche realen Kosten damit verbunden sind, wäre es großartig, gemeinsam mit den Dozenten ein reales Großprojekt zu analysieren. Ein umfassenderer Gesamtplan an einem echten Industrie- oder Praxisbeispiel würde uns helfen, die gelernten Module noch gezielter auf die realen Arbeitssektoren zu übertragen.
