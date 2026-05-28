@@ -41,7 +41,6 @@ Spannungsebenen (3.3V vs. 5V): Der ESP8266-Chip auf dem Wemos arbeitet intern mi
 
 Deshalb nutzen wir Dupont-Kabel, um den Sensor flexibel auf einen absolut sicheren und freien Pin (hier D5) zu legen!
 
-## Task 1.2
 
 node-red ist gleich geblieben, es wird nur statt dem Slider der gemessene Temperaturwert genommen:
 
