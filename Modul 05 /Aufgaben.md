@@ -452,3 +452,397 @@ lib_deps =
 
 
 ## Aufgabe 2.2: Sensor: Ultraschall-Distanzsensor / LIDAR / PIR als Anwesenheitsmelder
+
+US-Sensor stand nicht zur Verfügung. Deshalb wurde dieser nicht mit verbaut.
+
+
+## Aufgabe 2.3: Akteur: UI-Tonbenachrichtigung / PWM-Summer
+
+Buzzer wurde angeschlossen und in Node-red eingebunden:
+
+<img width="1208" height="660" alt="image" src="https://github.com/user-attachments/assets/a4e0c9af-96e1-4794-8eaf-7d70315fb78f" />
+
+Programm code:
+
+ini:
+```ini
+[env:d1_mini]
+platform  = espressif8266
+board     = d1_mini
+framework = arduino
+
+lib_deps =
+    knolleary/PubSubClient
+```
+
+cpp:
+```cpp
+#include <Arduino.h>
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+
+const char* WIFI_SSID     = "MCU_ProgrammingFBML";
+const char* WIFI_PASSWORD = "HSBI2105";
+const char* MQTT_BROKER   = "192.168.1.1";
+const int   MQTT_PORT     = 1883;
+const char* MQTT_CLIENT   = "wemos-buzzer";
+const char* TOPIC_BUZZER  = "Buzzer/Play";   // payload: "frequenz,dauer_ms"
+
+#define BUZZER_PIN D5
+
+WiFiClient   espClient;
+PubSubClient mqtt(espClient);
+
+void playTone(int freq, int duration) {
+    if (freq == 0) {
+        noTone(BUZZER_PIN);
+        return;
+    }
+    tone(BUZZER_PIN, freq, duration);
+}
+
+// Notification-Sounds als Sequenzen
+void playGranted() {
+    playTone(1047, 100);  delay(110);   // C6
+    playTone(1319, 100);  delay(110);   // E6
+    playTone(1568, 200);  delay(210);   // G6
+}
+
+void playDenied() {
+    playTone(330, 200);   delay(210);   // E4
+    playTone(277, 400);   delay(410);   // C#4
+}
+
+void mqttCallback(char* topic, byte* payload, unsigned int length) {
+    String msg = "";
+    for (unsigned int i = 0; i < length; i++) msg += (char)payload[i];
+    msg.trim();
+
+    Serial.println("Empfangen: " + msg);
+
+    // Vordefinierte Sounds
+    if (msg == "GRANTED") { playGranted(); return; }
+    if (msg == "DENIED")  { playDenied();  return; }
+    if (msg == "OFF")     { noTone(BUZZER_PIN); return; }
+
+    // Format "frequenz,dauer" z.B. "440,500"
+    int comma = msg.indexOf(',');
+    if (comma > 0) {
+        int freq = msg.substring(0, comma).toInt();
+        int dur  = msg.substring(comma + 1).toInt();
+        playTone(freq, dur);
+    }
+}
+
+void connectWiFi() {
+    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    Serial.print("WiFi verbinden");
+    while (WiFi.status() != WL_CONNECTED) { delay(500); Serial.print("."); }
+    Serial.println(" OK – " + WiFi.localIP().toString());
+}
+
+void connectMQTT() {
+    while (!mqtt.connected()) {
+        if (mqtt.connect(MQTT_CLIENT)) {
+            mqtt.subscribe(TOPIC_BUZZER);
+            Serial.println("MQTT OK – subscribing Buzzer/Play");
+        } else {
+            delay(2000);
+        }
+    }
+}
+
+void setup() {
+    Serial.begin(115200);
+    pinMode(BUZZER_PIN, OUTPUT);
+    connectWiFi();
+    mqtt.setServer(MQTT_BROKER, MQTT_PORT);
+    mqtt.setCallback(mqttCallback);
+}
+
+void loop() {
+    if (!mqtt.connected()) connectMQTT();
+    mqtt.loop();
+}
+```
+
+## Aufgabe 2.4: Akteur: Mini-OLED-Textempfänger
+
+Display wurde eingebunden. Hört direkt auf dieselben Nachrichten, wie der Buzzer
+
+ini:
+```ini
+[env:d1_mini]
+platform  = espressif8266
+board     = d1_mini
+framework = arduino
+
+lib_deps =
+    knolleary/PubSubClient
+    adafruit/Adafruit SSD1306
+    adafruit/Adafruit GFX Library
+```
+
+cpp:
+```cpp
+#include <Arduino.h>
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+// ── WiFi & MQTT ───────────────────────────────
+const char* WIFI_SSID     = "MCU_ProgrammingFBML";
+const char* WIFI_PASSWORD = "HSBI2105";
+const char* MQTT_BROKER   = "192.168.1.1";
+const int   MQTT_PORT     = 1883;
+const char* MQTT_CLIENT   = "wemos-oled";
+const char* TOPIC_ACCESS  = "Buzzer/Play";
+
+// ── OLED ──────────────────────────────────────
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_RESET   -1
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+WiFiClient   espClient;
+PubSubClient mqtt(espClient);
+
+// ── Display-Funktionen ────────────────────────
+void showWaiting() {
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(20, 20);
+    display.print("Karte vorhalten...");
+    display.setCursor(28, 36);
+    display.print("Waiting...");
+    display.display();
+}
+
+void showGranted() {
+    display.clearDisplay();
+    display.setTextSize(3);
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(52, 4);
+    display.print("OK");
+    display.drawLine(0, 36, 128, 36, SSD1306_WHITE);
+    display.setTextSize(1);
+    display.setCursor(12, 42);
+    display.print("Access Granted");
+    display.display();
+}
+
+void showDenied() {
+    display.clearDisplay();
+    display.setTextSize(3);
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(52, 4);
+    display.print("X");
+    display.drawLine(0, 36, 128, 36, SSD1306_WHITE);
+    display.setTextSize(1);
+    display.setCursor(14, 42);
+    display.print("Access Denied");
+    display.display();
+}
+
+void showBooting(String step) {
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(0, 0);
+    display.print("Access Control v1.0");
+    display.drawLine(0, 12, 128, 12, SSD1306_WHITE);
+    display.setCursor(0, 20);
+    display.print(step);
+    display.display();
+}
+
+// ── MQTT Callback ─────────────────────────────
+void mqttCallback(char* topic, byte* payload, unsigned int length) {
+    String msg = "";
+    for (unsigned int i = 0; i < length; i++) msg += (char)payload[i];
+    msg.trim();
+
+    Serial.println("Empfangen: " + msg);
+
+    if (msg == "GRANTED") {
+        showGranted();
+    } else if (msg == "DENIED") {
+        showDenied();
+    }
+
+    delay(3000);
+    showWaiting();
+}
+
+// ── WiFi verbinden ────────────────────────────
+void connectWiFi() {
+    showBooting("WiFi verbinden...");
+    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+    Serial.println(" OK – " + WiFi.localIP().toString());
+    showBooting("WiFi OK");
+    delay(800);
+}
+
+// ── MQTT verbinden ────────────────────────────
+void connectMQTT() {
+    showBooting("MQTT verbinden...");
+    while (!mqtt.connected()) {
+        if (mqtt.connect(MQTT_CLIENT)) {
+            mqtt.subscribe(TOPIC_ACCESS);
+            Serial.println("MQTT OK – subscribing " + String(TOPIC_ACCESS));
+            showBooting("MQTT OK");
+            delay(800);
+        } else {
+            Serial.print("Fehler: ");
+            Serial.println(mqtt.state());
+            delay(2000);
+        }
+    }
+}
+
+// ── Setup ─────────────────────────────────────
+void setup() {
+    Serial.begin(115200);
+
+    Wire.begin(D2, D1);
+    if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+        Serial.println("OLED nicht gefunden!");
+        while (true);
+    }
+
+    showBooting("Starte...");
+    delay(1000);
+
+    connectWiFi();
+    mqtt.setServer(MQTT_BROKER, MQTT_PORT);
+    mqtt.setCallback(mqttCallback);
+    connectMQTT();
+
+    showWaiting();
+}
+
+// ── Loop ──────────────────────────────────────
+void loop() {
+    if (!mqtt.connected()) connectMQTT();
+    mqtt.loop();
+}
+```
+
+## Aufgabe 2.5: Akteur: PWM-LED oder RGB-LED
+
+In den Code von 2.3 wurde eine simple Ansteuerung für zwei LEDs implementiert.
+Diese leuchten entweder bei Access Granted oder bei Access Denied:
+
+```cpp
+#include <Arduino.h>
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+
+const char* WIFI_SSID     = "MCU_ProgrammingFBML";
+const char* WIFI_PASSWORD = "HSBI2105";
+const char* MQTT_BROKER   = "192.168.1.1";
+const int   MQTT_PORT     = 1883;
+const char* MQTT_CLIENT   = "wemos-buzzer";
+const char* TOPIC_BUZZER  = "Buzzer/Play";   // payload: "frequenz,dauer_ms"
+
+#define BUZZER_PIN D5
+#define LED_PIN D1
+#define LED_RED D7
+
+WiFiClient   espClient;
+PubSubClient mqtt(espClient);
+
+void playTone(int freq, int duration) {
+    if (freq == 0) {
+        noTone(BUZZER_PIN);
+        return;
+    }
+    tone(BUZZER_PIN, freq, duration);
+}
+
+// Notification-Sounds als Sequenzen
+void playGranted() {
+    digitalWrite(LED_PIN, HIGH);
+    playTone(1047, 100);  delay(110);   // C6
+    digitalWrite(LED_PIN, LOW);
+    playTone(1319, 100);  delay(110);   // E6
+    digitalWrite(LED_PIN, HIGH);
+    playTone(1568, 200);  delay(210);   // G6
+    digitalWrite(LED_PIN, LOW);
+}
+
+void playDenied() {
+    digitalWrite(LED_RED, HIGH);
+    playTone(330, 200);   delay(210);   // E4
+    playTone(277, 400);   delay(410);   // C#4
+    digitalWrite(LED_RED, LOW);
+}
+
+void mqttCallback(char* topic, byte* payload, unsigned int length) {
+    String msg = "";
+    for (unsigned int i = 0; i < length; i++) msg += (char)payload[i];
+    msg.trim();
+
+    Serial.println("Empfangen: " + msg);
+
+    // Vordefinierte Sounds
+    if (msg == "GRANTED") { playGranted(); return; }
+    if (msg == "DENIED")  { playDenied();  return; }
+    if (msg == "OFF")     { noTone(BUZZER_PIN); return; }
+
+    // Format "frequenz,dauer" z.B. "440,500"
+    int comma = msg.indexOf(',');
+    if (comma > 0) {
+        int freq = msg.substring(0, comma).toInt();
+        int dur  = msg.substring(comma + 1).toInt();
+        playTone(freq, dur);
+    }
+}
+
+void connectWiFi() {
+    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    Serial.print("WiFi verbinden");
+    while (WiFi.status() != WL_CONNECTED) { delay(500); Serial.print("."); }
+    Serial.println(" OK – " + WiFi.localIP().toString());
+}
+
+void connectMQTT() {
+    while (!mqtt.connected()) {
+        if (mqtt.connect(MQTT_CLIENT)) {
+            mqtt.subscribe(TOPIC_BUZZER);
+            Serial.println("MQTT OK – subscribing Buzzer/Play");
+        } else {
+            delay(2000);
+        }
+    }
+}
+
+void setup() {
+    Serial.begin(115200);
+    pinMode(BUZZER_PIN, OUTPUT);
+    connectWiFi();
+    mqtt.setServer(MQTT_BROKER, MQTT_PORT);
+    mqtt.setCallback(mqttCallback);
+    pinMode(LED_PIN, OUTPUT);
+    pinMode(LED_RED, OUTPUT);
+}
+
+void loop() {
+    if (!mqtt.connected()) connectMQTT();
+    mqtt.loop();
+}
+```
+
+## Access Control System Overview
+
+<img width="1148" height="2040" alt="image" src="https://github.com/user-attachments/assets/64884bf4-4548-4f4a-8998-814ec6e7438a" />
+
+Gesamter Hardwareaufbau. Die grüne LED blinkt bei Access Granted und das Display zeigt, wie in der Abbildung den Text an. Das Relais schaltet ebenfalls durch.
+Beim Vorhalten der falschen Karte leuchtet die rote LED und das Display gibt den Text aus.
