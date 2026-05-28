@@ -299,5 +299,156 @@ Eigene Ausgabe einfach nur über Benutzeroberfläche des Node-Reds
  **Zusammen mit <Frederik Bröckling>, [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling/blob/main/Module05/Tasks.md)** ein schöneres Template erstellt. 
 
 
+Node-red Implementierung:
+
+<img width="457" height="168" alt="image" src="https://github.com/user-attachments/assets/da441833-a3e9-45dc-8e63-638b775db3ce" />
+
+function code:
+```java script
+// ── Bekannte UIDs ─────────────────────────────
+const allowedUIDs = [
+    "73:A4:C4:30",   // Karte 1
+    //"23:FE:34:08",   // Karte 2
+];
+
+const uid = msg.payload.trim().toUpperCase();
+const granted = allowedUIDs.includes(uid);
+
+msg.payload = {
+    uid:     uid,
+    granted: granted,
+    text:    granted ? "Access Granted" : "Access Denied",
+    color:   granted ? "#1D9E75" : "#E24B4A"
+};
+
+return msg;
+```
+template:
+```html
+<template>
+  <div :style="{
+    backgroundColor: msg.payload.color,
+    color: '#ffffff',
+    padding: '20px 40px',
+    borderRadius: '12px',
+    fontSize: '24px',
+    fontWeight: '500',
+    textAlign: 'center',
+    transition: 'all 0.4s ease'
+  }">
+    <div>{{ msg.payload.text }}</div>
+    <div style="font-size: 14px; margin-top: 8px; opacity: 0.85;">
+      UID: {{ msg.payload.uid }}
+    </div>
+  </div>
+</template>
+```
+
+Ausgabe der Anzeige:
+
+<img width="919" height="180" alt="image" src="https://github.com/user-attachments/assets/f4446da8-9310-4bac-a3db-119212f49bc5" />
+<img width="912" height="179" alt="image" src="https://github.com/user-attachments/assets/83ef6477-6c57-45c1-b26a-71e7b221c525" />
+
+Wemos D1 Mini Code:
+```cpp
+#include <Arduino.h>
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+#include <SPI.h>
+#include <MFRC522.h>
+
+// ── WiFi & MQTT ───────────────────────────────
+const char* WIFI_SSID     = "MCU_ProgrammingFBML";
+const char* WIFI_PASSWORD = "HSBI2105";
+const char* MQTT_BROKER   = "192.168.1.1";
+const int   MQTT_PORT     = 1883;
+const char* MQTT_CLIENT   = "wemos-rfid";
+const char* TOPIC_UID     = "RFID/UID";
+
+// ── RFID ──────────────────────────────────────
+#define RST_PIN D3
+#define SS_PIN  D8
+MFRC522 rfid(SS_PIN, RST_PIN);
+
+WiFiClient   espClient;
+PubSubClient mqtt(espClient);
+
+void connectWiFi() {
+    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    Serial.print("WiFi verbinden");
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+    Serial.println(" OK – " + WiFi.localIP().toString());
+}
+
+void connectMQTT() {
+    while (!mqtt.connected()) {
+        Serial.print("MQTT verbinden...");
+        if (mqtt.connect(MQTT_CLIENT)) {
+            Serial.println("OK");
+        } else {
+            Serial.print("Fehler: ");
+            Serial.println(mqtt.state());
+            delay(2000);
+        }
+    }
+}
+
+// ── UID als HEX-String bauen ──────────────────
+String getUID() {
+    String uid = "";
+    for (byte i = 0; i < rfid.uid.size; i++) {
+        if (rfid.uid.uidByte[i] < 0x10) uid += "0";
+        uid += String(rfid.uid.uidByte[i], HEX);
+        if (i < rfid.uid.size - 1) uid += ":";
+    }
+    uid.toUpperCase();
+    return uid;   // z.B. "A1:B2:C3:D4"
+}
+
+void setup() {
+    Serial.begin(115200);
+    SPI.begin();
+    rfid.PCD_Init();
+    connectWiFi();
+    mqtt.setServer(MQTT_BROKER, MQTT_PORT);
+    Serial.println("RFID bereit – Karte vorhalten");
+}
+
+void loop() {
+    if (!mqtt.connected()) connectMQTT();
+    mqtt.loop();
+
+    // Warten bis eine Karte erkannt wird
+    if (!rfid.PICC_IsNewCardPresent()) return;
+    if (!rfid.PICC_ReadCardSerial())   return;
+
+    String uid = getUID();
+    Serial.println("UID: " + uid);
+
+    // Per MQTT senden
+    mqtt.publish(TOPIC_UID, uid.c_str());
+
+    rfid.PICC_HaltA();       // Karte "parken"
+    rfid.PCD_StopCrypto1();  // Verschlüsselung stoppen
+
+    delay(1000);             // Doppel-Scan verhindern
+}
+```
+
+ini:
+```ini
+[env:d1_mini]
+platform  = espressif8266
+board     = d1_mini
+framework = arduino
+
+lib_deps =
+    knolleary/PubSubClient
+    miguelbalboa/MFRC522
+```
+
 
 ## Aufgabe 2.2: Sensor: Ultraschall-Distanzsensor / LIDAR / PIR als Anwesenheitsmelder
