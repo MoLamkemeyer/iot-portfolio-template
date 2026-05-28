@@ -30,7 +30,7 @@ Schritt 5: Speichern und Testen!Klicke ganz oben rechts auf den großen, roten D
 
 ## Aufgabe1.2: Sensor: Knoten mit Temperatursensor
 
-**Alle Aufgaben werden zusammen mit meinem Teampartner <Frederik Bröckling>, [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling/blob/main/Module05/Tasks.md) zusammen bearbeitet. Es funktioniert nur das Programm auf seinem Laptop und wir haben zusammen nur einen funktionierenden Wemos D1 mini. 
+**Alle Aufgaben werden zusammen mit meinem Teampartner <Frederik Bröckling>, [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling/blob/main/Module05/Tasks.md) zusammen bearbeitet. Es funktioniert nur das Programm auf seinem Laptop und wir haben zusammen nur einen funktionierenden Wemos D1 mini.**
 
 Hintergrund: Warum darf das Shield nicht einfach direkt angeschlossen werden?
 Der Dozent warnt im Skript eindringlich davor, Sensoren ohne Plan anzuschließen. Bei der Verwendung des Dallas-Sensor-Shields (DS18B20) zusammen mit dem Wemos D1 Mini hat das zwei handfeste Gründe:
@@ -143,7 +143,8 @@ void loop() {
 }
 ```
 
-## Task 1.3
+
+## Aufgabe 1.3: Akteur: Zweiter Knoten: AC als gleichmäßig blinkende LED
 
 In Node-red wurde nichts angepasst. Der Code wurde erweitert, um eine Funktion, welche das ON/OFF Signal hört und demnach die LED schaltet.
 
@@ -286,4 +287,3 @@ void loop() {
 
 
 
-## Aufgabe 1.3: Akteur: Zweiter Knoten: AC als gleichmäßig blinkende LED
