@@ -6,7 +6,7 @@
 ## Modul 06
 
 **Teamarbeit** 
-mit [Frederik Bröckling][(https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling)](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling/tree/main/Module06)
+mit [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling)
 
 ## Aufgabe 1: Skalierung von IoT-Systemen
 
