@@ -30,7 +30,7 @@ Schritt 5: Speichern und Testen!Klicke ganz oben rechts auf den großen, roten D
 
 ## Aufgabe1.2: Sensor: Knoten mit Temperatursensor
 
-**Alle Aufgaben werden zusammen mit meinem Teampartner <Frederik Bröckling>, [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling/blob/main/Module05/Tasks.md) zusammen bearbeitet. Es funktioniert nur das Programm auf seinem Laptop und wir haben zusammen nur einen funktionierenden Wemos D1 mini 
+**Alle Aufgaben werden zusammen mit meinem Teampartner <Frederik Bröckling>, [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling/blob/main/Module05/Tasks.md) zusammen bearbeitet. Es funktioniert nur das Programm auf seinem Laptop und wir haben zusammen nur einen funktionierenden Wemos D1 mini. 
 
 Hintergrund: Warum darf das Shield nicht einfach direkt angeschlossen werden?
 Der Dozent warnt im Skript eindringlich davor, Sensoren ohne Plan anzuschließen. Bei der Verwendung des Dallas-Sensor-Shields (DS18B20) zusammen mit dem Wemos D1 Mini hat das zwei handfeste Gründe:
@@ -40,6 +40,251 @@ Gefahr von Pin-Konflikten (Boot-Fehler): Das originale Wemos-Dallas-Shield ist a
 Spannungsebenen (3.3V vs. 5V): Der ESP8266-Chip auf dem Wemos arbeitet intern mit 3.3V. Viele Sensoren vertragen keine 5V oder senden 5V-Signale zurück, was den Mikrocontroller irreparabel zerstören kann. Das Dallas-Shield muss zwingend mit der stabilen 3.3V-Schiene versorgt werden.
 
 Deshalb nutzen wir Dupont-Kabel, um den Sensor flexibel auf einen absolut sicheren und freien Pin (hier D5) zu legen!
+
+## Task 1.2
+
+node-red ist gleich geblieben, es wird nur statt dem Slider der gemessene Temperaturwert genommen:
+
+MQTT Ausgabe:
+
+<img width="102" height="58" alt="image" src="https://github.com/user-attachments/assets/319187fe-50fc-4b62-9931-0f8d8be73b25" />
+
+<img width="108" height="58" alt="image" src="https://github.com/user-attachments/assets/a2313598-105e-4418-91ac-577db9d40e04" />
+
+platformio.ini:
+```
+[env:d1_mini]
+platform  = espressif8266
+board     = d1_mini
+framework = arduino
+
+lib_deps =
+    knolleary/PubSubClient
+    milesburton/DallasTemperature
+    paulstoffregen/OneWire
+```
+
+main.cpp:
+```
+#include <Arduino.h>
+#include <ESP8266WiFi.h>        // ESP8266, nicht ESP32!
+#include <PubSubClient.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
+
+// ── WiFi ──────────────────────────────────────
+const char* WIFI_SSID     = "MCU_ProgrammingFBML";
+const char* WIFI_PASSWORD = "HSBI2105";
+
+// ── MQTT ──────────────────────────────────────
+const char* MQTT_BROKER   = "192.168.1.1";  // IP deines Brokers
+const int   MQTT_PORT     = 1883;
+const char* MQTT_TOPIC    = "AC/Soll";
+const char* MQTT_CLIENT   = "wemos-sensor";
+
+// ── Sensor ────────────────────────────────────
+// Dallas Shield auf Wemos D1 Mini = GPIO 2 = D4
+#define ONE_WIRE_PIN D5
+OneWire oneWire(ONE_WIRE_PIN);
+DallasTemperature sensors(&oneWire);
+
+WiFiClient   espClient;
+PubSubClient mqtt(espClient);
+
+void connectWiFi() {
+    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    Serial.print("WiFi verbinden");
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+    Serial.println(" OK – IP: " + WiFi.localIP().toString());
+}
+
+void connectMQTT() {
+    while (!mqtt.connected()) {
+        Serial.print("MQTT verbinden...");
+        if (mqtt.connect(MQTT_CLIENT)) {
+            Serial.println("OK");
+        } else {
+            Serial.print("Fehler: ");
+            Serial.println(mqtt.state());
+            delay(2000);
+        }
+    }
+}
+
+void setup() {
+    Serial.begin(115200);
+    sensors.begin();
+    connectWiFi();
+    mqtt.setServer(MQTT_BROKER, MQTT_PORT);
+}
+
+void loop() {
+    if (!mqtt.connected()) connectMQTT();
+    mqtt.loop();
+
+    sensors.requestTemperatures();
+    float temp = sensors.getTempCByIndex(0);
+
+    if (temp != DEVICE_DISCONNECTED_C) {
+        char payload[8];
+        dtostrf(temp, 4, 1, payload);       // z.B. "23.5"
+        mqtt.publish(MQTT_TOPIC, payload);
+
+        Serial.print("Temp: ");
+        Serial.print(temp);
+        Serial.println(" °C");
+    } else {
+        Serial.println("Sensor nicht gefunden – Verkabelung prüfen!");
+    }
+
+    delay(5000);
+}
+```
+
+## Task 1.3
+
+In Node-red wurde nichts angepasst. Der Code wurde erweitert, um eine Funktion, welche das ON/OFF Signal hört und demnach die LED schaltet.
+
+Bild Hardwareaufbau:
+
+<img width="1536" height="2048" alt="image" src="https://github.com/user-attachments/assets/f991b1dd-deab-46a0-ac85-571dc0971d19" />
+
+ini: Hat sich nicht verändert
+
+main.cpp:
+```
+#include <Arduino.h>
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
+
+// ── WiFi ──────────────────────────────────────
+const char* WIFI_SSID     = "MCU_ProgrammingFBML";
+const char* WIFI_PASSWORD = "HSBI2105";
+
+// ── MQTT ──────────────────────────────────────
+const char* MQTT_BROKER   = "192.168.1.1";
+const int   MQTT_PORT     = 1883;
+const char* MQTT_TOPIC    = "AC/Soll";
+const char* MQTT_CLIENT   = "wemos-sensor";
+const char* TOPIC_STATE   = "AC/State";      // NEU
+
+// ── Sensor ────────────────────────────────────
+#define ONE_WIRE_PIN D5
+OneWire oneWire(ONE_WIRE_PIN);
+DallasTemperature sensors(&oneWire);
+
+// ── LED Faden ─────────────────────────────────
+#define LED_PIN D2                            // NEU
+int  brightness = 0;
+int  fadeStep   = 5;
+bool ledFading  = false;
+
+WiFiClient   espClient;
+PubSubClient mqtt(espClient);
+
+// ── MQTT Callback ─────────────────────────────── NEU
+void mqttCallback(char* topic, byte* payload, unsigned int length) {
+    String message = "";
+    for (unsigned int i = 0; i < length; i++) {
+        message += (char)payload[i];
+    }
+    Serial.print("Topic: ");
+    Serial.print(topic);
+    Serial.print(" → ");
+    Serial.println(message);
+
+    if (String(topic) == TOPIC_STATE) {
+        if (message == "ON") {
+            ledFading = true;
+            Serial.println("LED: faden AN");
+        } else if (message == "OFF") {
+            ledFading  = false;
+            brightness = 0;
+            analogWrite(LED_PIN, 0);
+            Serial.println("LED: AUS");
+        }
+    }
+}
+
+// ── LED updaten ───────────────────────────────── NEU
+void updateFade() {
+    if (!ledFading) return;
+    brightness += fadeStep;
+    if (brightness >= 255) { brightness = 255; fadeStep = -abs(fadeStep); }
+    else if (brightness <= 0) { brightness = 0;  fadeStep =  abs(fadeStep); }
+    analogWrite(LED_PIN, brightness);
+}
+
+void connectWiFi() {
+    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    Serial.print("WiFi verbinden");
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+    Serial.println(" OK – IP: " + WiFi.localIP().toString());
+}
+
+void connectMQTT() {
+    while (!mqtt.connected()) {
+        Serial.print("MQTT verbinden...");
+        if (mqtt.connect(MQTT_CLIENT)) {
+            mqtt.subscribe(TOPIC_STATE);     // NEU – AC/State abonnieren
+            Serial.println("OK");
+        } else {
+            Serial.print("Fehler: ");
+            Serial.println(mqtt.state());
+            delay(2000);
+        }
+    }
+}
+
+void setup() {
+    Serial.begin(115200);
+    sensors.begin();
+    pinMode(LED_PIN, OUTPUT);                // NEU
+    analogWrite(LED_PIN, 0);                 // NEU
+    connectWiFi();
+    mqtt.setServer(MQTT_BROKER, MQTT_PORT);
+    mqtt.setCallback(mqttCallback);          // NEU
+}
+
+void loop() {
+    if (!mqtt.connected()) connectMQTT();
+    mqtt.loop();
+
+    // ── LED Fade (non-blocking) ────────────── NEU
+    updateFade();
+
+    // ── Temperatur alle 5 s senden ────────────
+    static unsigned long lastMsg = 0;        // NEU – kein blockierendes delay()
+    if (millis() - lastMsg >= 5000) {
+        lastMsg = millis();
+
+        sensors.requestTemperatures();
+        float temp = sensors.getTempCByIndex(0);
+
+        if (temp != DEVICE_DISCONNECTED_C) {
+            char payload[8];
+            dtostrf(temp, 4, 1, payload);
+            mqtt.publish(MQTT_TOPIC, payload);
+            Serial.print("Temp: ");
+            Serial.print(temp);
+            Serial.println(" °C");
+        } else {
+            Serial.println("Sensor nicht gefunden – Verkabelung prüfen!");
+        }
+    }
+
+    delay(10);                               // Fade-Takt
+}
+```
+
 
 
 ## Aufgabe 1.3: Akteur: Zweiter Knoten: AC als gleichmäßig blinkende LED
