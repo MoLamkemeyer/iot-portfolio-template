@@ -30,7 +30,7 @@ Schritt 5: Speichern und Testen!Klicke ganz oben rechts auf den großen, roten D
 
 ## Aufgabe1.2: Sensor: Knoten mit Temperatursensor
 
-**Alle Aufgaben werden zusammen mit meinem Teampartner [Frederik Bröckling] (https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling/blob/main/Module05/Tasks.md)
+**Alle Aufgaben werden zusammen mit meinem Teampartner <Frederik Bröckling>, [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling/blob/main/Module05/Tasks.md)
 
 Hintergrund: Warum darf das Shield nicht einfach direkt angeschlossen werden?
 Der Dozent warnt im Skript eindringlich davor, Sensoren ohne Plan anzuschließen. Bei der Verwendung des Dallas-Sensor-Shields (DS18B20) zusammen mit dem Wemos D1 Mini hat das zwei handfeste Gründe:
