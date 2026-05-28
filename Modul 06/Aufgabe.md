@@ -7,7 +7,7 @@
 
 ## Aufgabe 1: Skalierung von IoT-Systemen
 
-1. Systembausteine & Schwachstellen (Pain Points) ohne Framework
+**1. Systembausteine & Schwachstellen (Pain Points) ohne Framework**
 
 Beim manuellen Aufbau von IoT-Netzwerken (z. B. rein über die Arduino IDE oder isolierte PlatformIO-Projekte) stößt man bei der Systemvergrößerung unweigerlich an strukturelle und logistische Grenzen: 
 
@@ -19,7 +19,7 @@ Beim manuellen Aufbau von IoT-Netzwerken (z. B. rein über die Arduino IDE oder 
 
 •	Mangelnde Dokumentation: Bei wachsender Geräteanzahl fehlt schnell die Übersicht über die exakte physische Pin-Belegung und die zugehörige MQTT-Topic-Struktur. 
 
-2. Anmerkungen zur Skalierung (Probleme & Anforderungen)
+**2. Anmerkungen zur Skalierung (Probleme & Anforderungen)**
 Wenn die Anzahl der installierten Mikrocontroller massiv erhöht wird, verändern sich die Anforderungen an die Infrastruktur drastisch: 
 
 •	Ressourcen- & Netzwerk-Overhead: Die verfügbare Bandbreite und die Verarbeitungskapazität des lokalen Netzwerks werden durch unfiltrierte Datenströme stark beansprucht. 
@@ -34,10 +34,10 @@ o	Ein Knoten-Überwachungssystem (Node Monitoring) zur Live-Statuskontrolle.
 
 o	Simulations- und Stress-Testing-Umgebungen, um Systemgrenzen vor dem echten Deployment zu prüfen. 
 
-3. Gerätemanagement vs. Integration für IoT-Systeme
+**3. Gerätemanagement vs. Integration für IoT-Systeme**
 Um große IoT-Systeme wartbar zu gestalten, muss die Architektur strikt in zwei funktionale Framework-Ebenen unterteilt werden: 
 
-A. Device-Management Frameworks (Geräteverwaltung)
+**A. Device-Management Frameworks (Geräteverwaltung)**
 
 Diese Frameworks agieren direkt auf der Hardware-Ebene und verwalten den gesamten Lebenszyklus der Mikrocontroller (z. B. ESP8266 oder ESP32). 
 
@@ -56,7 +56,7 @@ o	Tasmota: Vorkompilierte Firmware für kommerzielle Smart-Home-Komponenten; Kon
 o	Mongoose OS: Professionelles, kommerzielles Open-Source-Betriebssystem mit Fokus auf JavaScript/C-Programmierung, TLS-Verschlüsselung und native Cloud-Anbindungen. 
 
 
-B. Integration Frameworks (System-Integration)
+**B. Integration Frameworks (System-Integration)**
 
 Diese Frameworks arbeiten auf der Middleware- und Anwendungsebene. Sie setzen voraus, dass die Hardware bereits funktionsfähig im Netzwerk angemeldet ist. 
 
