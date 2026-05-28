@@ -29,6 +29,9 @@ Klicke auf Done. (Dieser Node erzeugt dynamisch die Farben für das Dashboard).S
 Schritt 5: Speichern und Testen!Klicke ganz oben rechts auf den großen, roten Deploy-Button, um das System live zu schalten. Unter deinen drei lila MQTT-Knoten muss jetzt das Wort "connected" in grün stehen.Öffne dein Dashboard im Browser. Tippe dazu in die Adresszeile deines Browsers: http://localhost:40080/ui/ (bzw. die IP deines Labor-Gateways).Der Test:Schiebe den Temperatur-Regler mit der Maus hoch auf 25 °C.Was passiert im Hintergrund? Der Slider schickt 25 per MQTT $\rightarrow$ der Integrator empfängt es $\rightarrow$ der Switch merkt, dass 25 größer als 23 ist $\rightarrow$ der Change-Node macht daraus ein ON $\rightarrow$ der Befehl geht per MQTT an die virtuelle Klimaanlage $\rightarrow$ die Funktion macht den Button grün und schreibt KLIMAANLAGE: AN.Schiebe den Regler runter auf 20 °C: Der Button springt sofort um auf rot und zeigt KLIMAANLAGE: AUS.
 
 ## Aufgabe1.2: Sensor: Knoten mit Temperatursensor
+
+**Alle Aufgaben werden zusammen mit meinem Teampartner [Frederik Bröckling] (https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling/blob/main/Module05/Tasks.md)
+
 Hintergrund: Warum darf das Shield nicht einfach direkt angeschlossen werden?
 Der Dozent warnt im Skript eindringlich davor, Sensoren ohne Plan anzuschließen. Bei der Verwendung des Dallas-Sensor-Shields (DS18B20) zusammen mit dem Wemos D1 Mini hat das zwei handfeste Gründe:
 
@@ -37,3 +40,6 @@ Gefahr von Pin-Konflikten (Boot-Fehler): Das originale Wemos-Dallas-Shield ist a
 Spannungsebenen (3.3V vs. 5V): Der ESP8266-Chip auf dem Wemos arbeitet intern mit 3.3V. Viele Sensoren vertragen keine 5V oder senden 5V-Signale zurück, was den Mikrocontroller irreparabel zerstören kann. Das Dallas-Shield muss zwingend mit der stabilen 3.3V-Schiene versorgt werden.
 
 Deshalb nutzen wir Dupont-Kabel, um den Sensor flexibel auf einen absolut sicheren und freien Pin (hier D5) zu legen!
+
+
+## Aufgabe 1.3: Akteur: Zweiter Knoten: AC als gleichmäßig blinkende LED
