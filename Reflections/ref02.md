@@ -25,7 +25,7 @@ Was war schwierig und wo gab es Hürden?
 
 Interaktion, Feedback & kollaborative Hürden
 
-- Teamübergreifender Support: Die Zusammenarbeit war unverzichtbar, besonders beim Lösen der anfänglichen Node-RED-Hürden und beim Verstehen der komplexeren Erweiterungs-Nodes. Die Zusammenarebit mit Frederik und Emil lief aber sehr gut.. Emil konnte die Installation von Node-Red gut erklären. Allerdings waren wir nach langen warten und installieren a, Ende dennoch überfragt, sodass ich durch eine Recherche den letzten Stück der Installation und Aufruf hinbekommen habe, sodass man das bei Frederik dann auch übertragen konnte und wir als team starten konnten. 
+- Teamübergreifender Support: Die Zusammenarbeit war unverzichtbar, besonders beim Lösen der anfänglichen Node-RED-Hürden und beim Verstehen der komplexeren Erweiterungs-Nodes. Die Zusammenarebit mit Frederik und Emil lief aber sehr gut. Emil konnte die Installation von Node-Red gut erklären. Allerdings waren wir nach langen warten und installieren am Ende dennoch überfragt, sodass ich durch eine Recherche den letzten Stück der Installation den Aufruf hinbekommen habe, sodass man das bei Frederik dann auch übertragen konnte und wir als team starten konnten. 
 
 
 Transfer & Zukunftsgedanken (Kritischer Ausblick)
