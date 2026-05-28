@@ -288,10 +288,16 @@ void loop() {
 ## Aufgabe 2: Vollständiges Zutrittskontrollsystem in Node-RED
 
 ## Aufgabe 2.1: Sensor: RFID-Lesegerät und Benutzeroberfläche
+Eigene Ausgabe einfach nur über Benutzeroberfläche des Node-Reds
 
 <img width="664" height="428" alt="image" src="https://github.com/user-attachments/assets/49339441-98b5-4bc5-bdc0-411064dbfdc1" />
 
 <img width="373" height="248" alt="image" src="https://github.com/user-attachments/assets/e9b7b7d2-0843-412c-a5a4-21ecc187629c" />
 
 <img width="399" height="172" alt="image" src="https://github.com/user-attachments/assets/a5b5866a-555b-46e2-af4b-bcad00a7a3d7" />
- 
+
+ **Zusammen mit <Frederik Bröckling>, [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling/blob/main/Module05/Tasks.md)** ein schöneres Template erstellt. 
+
+
+
+## Aufgabe 2.2: Sensor: Ultraschall-Distanzsensor / LIDAR / PIR als Anwesenheitsmelder
