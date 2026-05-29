@@ -209,3 +209,18 @@ password: iotempire
 
 <img width="1918" height="1078" alt="Screenshot 2026-05-28 174147" src="https://github.com/user-attachments/assets/7a27aa34-34a0-4c81-8e3c-1f11eab78a6e" />
 
+## Aufgabe 4
+
+**LED Grün/Rot**
+
+ ```cpp
+// Grüne LED an Pin D5 für "Zutritt gewährt / Welcome"
+led(green_led, D5);
+
+// Rote LED an Pin D6 für "Alarm / Kein Zutritt"
+led(red_led, D6);
+```
+
+<img width="1536" height="2048" alt="8e09ba73-4e52-4159-849f-14eb33740154" src="https://github.com/user-attachments/assets/816bad59-eeaf-4da0-a6da-1c7117279cb0" /> 
+
+<img width="1536" height="2048" alt="image" src="https://github.com/user-attachments/assets/96d75025-d10f-40f3-bc63-158402a0e477" />
