@@ -33,7 +33,8 @@ My personal profile and expectations, you can find [here](Module01/README.md#tas
 - [Modul 3:](https://github.com/MoLamkemeyer/iot-portfolio-template/tree/main/Modul%2003)
 - [Modul 4:](https://github.com/MoLamkemeyer/iot-portfolio-template/tree/main/Modul%2004)
 - [Modul 5:](https://github.com/MoLamkemeyer/iot-portfolio-template/tree/main/Modul%2005%20)
-- [Modul 6:](https://github.com/MoLamkemeyer/iot-portfolio-template/tree/main/Modul%2006)
+- [Modul 6:](https://github.com/MoLamkemeyer/iot-portfolio-template/tree/main/Modul%2006),
+[Reflection 3](/Reflections/ref03.md), [Reflection 4](/Reflections/ref04.md)
 - [Modul 7:](https://github.com/MoLamkemeyer/iot-portfolio-template/tree/main/Modul%2007%20)
 - ...
 
