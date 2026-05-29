@@ -81,3 +81,133 @@ o	IoTknit: Python-basiertes Framework, das als leichtgewichtige, codebasierte Al
 o	Home Assistant / OpenHAB: Führende Plattformen im Bereich der Heimautomatisierung mit umfassenden Datenbanken zur Integration kommerzieller Hardware. 
 
 o	Apache NiFi / Flogo: Ausgelegt für industrielle Datenskalierung (Data Routing) und eventgesteuerte Mikro-Architekturen. 
+
+
+## Task 2
+
+Setting up iotempower
+
+```
+wsl --install
+
+```
+installing it and updating variables
+```
+curl -L https://now.iotempower.us | bash -
+source ~/.bashrc
+iot
+```
+
+Create the template and edit the system.conf file
+```
+cd ~/iot-systems
+create_system_template my-home
+cd my-home
+nano system.conf
+```
+WiFi Settings
+```conf
+# Your WiFi network name
+IOTEMPOWER_AP_NAME="MCU_ProgrammingFBML"
+
+# Your WiFi password
+IOTEMPOWER_AP_PASSWORD="HSBI2105"
+
+# MQTT broker location
+# If using OpenWRT router with mosquitto:
+IOTEMPOWER_MQTT_HOST="192.168.1.1"
+
+# If running mqtt_starter on your computer, use your computer's IP:
+# Find it with: ipconfig (Windows) or ip a (Linux)
+# IOTEMPOWER_MQTT_HOST="192.168.1.100"
+# (replace with your actual IP - shown when mqtt_starter starts)
+# Note: You may need to allow port 1883 in your firewall
+```
+
+Edit setup.cpp in node
+```
+cd ~/iot-systems/my-home
+create_node_template living-room-lamp
+cd living-room-lamp
+nano setup.cpp
+```
+
+```cpp
+// Button on pin D3
+input(button1, D3, "released", "pressed").debounce(5);
+
+// Onboard LED (note: inverted for most ESP boards)
+output(blue_led, ONBOARDLED).inverted();
+```
+
+and then deploying after forwarding  the port via WSL USB  
+<img width="728" height="854" alt="image" src="https://github.com/user-attachments/assets/f39a50c1-1f4d-4d77-9ce6-3a981d873909" />
+
+
+```
+deploy serial
+```
+```
+living-room-lamp/sleep_mgr ready
+living-room-lamp/button1 released
+living-room-lamp/blue_led off
+```
+## Task 3
+Now we add a new node with an input button  
+We name said node "node2"  
+
+```
+iot menu
+```
+```
+mv new-node node2
+cd node2
+nano setup.cpp
+```
+```cpp
+input(b1, D5, "up", "down");
+```
+After forwarding the port via WSL USB  
+<img width="727" height="847" alt="image" src="https://github.com/user-attachments/assets/446a9591-1533-40b5-b66a-e82289b6a4db" />
+
+we deploy the specific usb so that the other microcontroller does not accidentally gets flashes as well.
+```
+ls /dev/ttyUSB*
+```
+```
+/dev/ttyUSB1
+```
+Listening to MQTT from the parentdirectory in order to hear from both the first node (living-room-lamp) and (node2)  
+```
+cd..
+mqtt_listen
+```
+
+```
+living-room-lamp/blue_led on
+living-room-lamp/sleep_mgr ready
+living-room-lamp/button1 released
+living-room-lamp/blue_led off
+node2/sleep_mgr ready
+node2/b1 up
+living-room-lamp/blue_led off
+living-room-lamp/sleep_mgr ready
+living-room-lamp/button1 pressed
+living-room-lamp/blue_led off
+node2/sleep_mgr ready
+node2/b1 down
+```
+
+After verifying this, we coded via node-red and verified with MQTT Explorer  
+
+This command can be used to start Node-Red  
+```
+iot x web_starter
+```
+ip: http://localhost:40080/nodered  
+user: admin  
+password: iotempire  
+<img width="1919" height="1079" alt="Screenshot 2026-05-28 175334" src="https://github.com/user-attachments/assets/706455c2-bce4-4238-a018-69bb3ea25588" />
+
+<img width="1918" height="1078" alt="Screenshot 2026-05-28 174147" src="https://github.com/user-attachments/assets/7a27aa34-34a0-4c81-8e3c-1f11eab78a6e" />
+
