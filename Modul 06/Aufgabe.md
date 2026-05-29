@@ -254,5 +254,5 @@ Nodered haben wir gemeinsam entwickelt.
 
 <img width="1536" height="2048" alt="54fa75ff-6b8d-46fc-8bfc-cc523287c014" src="https://github.com/user-attachments/assets/8327f79e-29fb-4917-9f86-0a1319f18195" />
 
-<img width="1075" height="643" alt="93b2b4fa-38e1-4a51-b0aa-59b72e0c23cd" src="https://github.com/user-attachments/assets/948a5158-4df7-4cca-968f-9ee7bb10184e" />
+
 <img width="1536" height="2048" alt="0c627494-0d06-410c-a67c-a1341296ea23" src="https://github.com/user-attachments/assets/e0d322f8-3dea-4554-82cf-5c7962d6a4cd" />
