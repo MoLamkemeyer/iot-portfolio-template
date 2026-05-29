@@ -9,9 +9,9 @@
 
 **Teamarbeit** 
 mit [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling)
-mit [Emil Memetov][(https://github.com/emilmemetov02-max)
+mit [Emil Memetov](https://github.com/emilmemetov02-max)
 ](https://github.com/emilmemetov02-max/iot-portfolio-Emil-Memetov/tree/main/Module06)
-Die Dokumentation für die Aufgaben des Modul 06 sind ab der Aufgabe 2 hauptsächlich bei [Emil Memetov][(https://github.com/emilmemetov02-max)](https://github.com/emilmemetov02-max/iot-portfolio-Emil-Memetov/tree/main/Module06) und wurde zusammen erledigt.
+Die Dokumentation für die Aufgaben des Modul 06 sind ab der Aufgabe 2 hauptsächlich bei [Emil Memetov](https://github.com/emilmemetov02-max/iot-portfolio-Emil-Memetov/tree/main/Module06) und wurde zusammen erledigt.
 
 ## Aufgabe 1: Skalierung von IoT-Systemen
 
