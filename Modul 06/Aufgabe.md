@@ -224,3 +224,18 @@ led(red_led, D6);
 <img width="1536" height="2048" alt="8e09ba73-4e52-4159-849f-14eb33740154" src="https://github.com/user-attachments/assets/816bad59-eeaf-4da0-a6da-1c7117279cb0" /> 
 
 <img width="1536" height="2048" alt="image" src="https://github.com/user-attachments/assets/96d75025-d10f-40f3-bc63-158402a0e477" />
+
+**RFID**
+Erstellt von Emil: 
+
+**Buzzer**
+
+Erstellt von Frederik:
+
+**OLED DISPLAY**
+
+Erstellt von Minguel:
+
+**NODE-RED**
+
+Nodered haben wir gemeinsam entwickelt. 
