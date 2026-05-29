@@ -20,7 +20,7 @@ In my team for the final project, I also had the following members:
 - [Jonathan Hunold](https://github.com/JonathanHunold)
 - <replace these pointy brackets with their full name>, [portfolio link](https://github.com/partner/iot-portfolio)
 
-Our team final project repository is [here](https://github.com/somewhere/final-iot-project)](https://github.com/KilianR2026/Portfolio-Microcontroller/tree/main/Module07)
+Our team final project repository is [here](https://github.com/KilianR2026/Portfolio-Microcontroller/tree/main/Module07)
 
 My personal profile and expectations, you can find [here](Module01/README.md#task-personal-profile).
 
