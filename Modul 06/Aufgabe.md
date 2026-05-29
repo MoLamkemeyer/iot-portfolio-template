@@ -240,3 +240,19 @@ Erstellt von Minguel:
 **NODE-RED**
 
 Nodered haben wir gemeinsam entwickelt. 
+
+<img width="1075" height="643" alt="93b2b4fa-38e1-4a51-b0aa-59b72e0c23cd" src="https://github.com/user-attachments/assets/b99d7f96-d691-4eb5-9e3e-307849e6c02e" />
+
+
+**Hardware Aufbau**
+
+<img width="1536" height="2048" alt="8e09ba73-4e52-4159-849f-14eb33740154" src="https://github.com/user-attachments/assets/9dad3d92-3cf3-4d14-a162-8062e695b96c" />
+
+<img width="1536" height="2048" alt="acff2a19-bae1-44ec-9021-35a60d8d0bed" src="https://github.com/user-attachments/assets/d079e87f-c290-4ba2-b173-4e3f142de034" />
+
+<img width="1536" height="2048" alt="24821751-5dd9-4ff8-9401-3be31aa359de" src="https://github.com/user-attachments/assets/48f3aff0-0c4b-42d5-bd3a-542cf9439ea5" />
+
+<img width="1536" height="2048" alt="54fa75ff-6b8d-46fc-8bfc-cc523287c014" src="https://github.com/user-attachments/assets/8327f79e-29fb-4917-9f86-0a1319f18195" />
+
+<img width="1075" height="643" alt="93b2b4fa-38e1-4a51-b0aa-59b72e0c23cd" src="https://github.com/user-attachments/assets/948a5158-4df7-4cca-968f-9ee7bb10184e" />
+<img width="1536" height="2048" alt="0c627494-0d06-410c-a67c-a1341296ea23" src="https://github.com/user-attachments/assets/e0d322f8-3dea-4554-82cf-5c7962d6a4cd" />
