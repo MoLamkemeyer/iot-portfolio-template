@@ -13,11 +13,11 @@ Author: <replace these pointy brackets with your full name>
 
 
 In my team for the final project, I also had the following members:
-- <Frederik Bröckling>, [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling)
-- <Emil Memetov>, [Emil Memetov](https://github.com/emilmemetov02-max/iot-portfolio-Emil-Memetov/tree/main)
-- <Kilian Ridder>, [Kilian Ridder](https://github.com/KilianR2026/Portfolio-Microcontroller)
-- <Minguel Diehl>, [Minguel Diehl](https://github.com/mingidiehl/MCP)
-- <Jonathan Hunold>, [Jonathan Hunold](https://github.com/JonathanHunold)
+- [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling)
+- [Emil Memetov](https://github.com/emilmemetov02-max/iot-portfolio-Emil-Memetov/tree/main)
+- [Kilian Ridder](https://github.com/KilianR2026/Portfolio-Microcontroller)
+- [Minguel Diehl](https://github.com/mingidiehl/MCP)
+- [Jonathan Hunold](https://github.com/JonathanHunold)
 - <replace these pointy brackets with their full name>, [portfolio link](https://github.com/partner/iot-portfolio)
 
 Our team final project repository is [here](https://github.com/somewhere/final-iot-project)
