@@ -227,15 +227,15 @@ led(red_led, D6);
 
 **RFID**
 
-Erstellt von Emil: 
+Erstellt von Emil: [Emil Memetov](https://github.com/emilmemetov02-max/iot-portfolio-Emil-Memetov/blob/main/Module06/README.md)
 
 **Buzzer**
 
-Erstellt von Frederik:
+Erstellt von Frederik: [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling/blob/main/Module06/Tasks.md)
 
 **OLED DISPLAY**
 
-Erstellt von Minguel:
+Erstellt von Minguel: [Minguel Diehl](https://github.com/mingidiehl/MCP/blob/main/Module06/README.md)
 
 **NODE-RED**
 
