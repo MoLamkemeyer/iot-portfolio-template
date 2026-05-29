@@ -9,7 +9,7 @@
 
 Author: <replace these pointy brackets with your full name>
 
- Mein Partner ist <Frederik Bröckling>, [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling) gemacht
+ Mein Partner ist [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling) gemacht
 
 
 In my team for the final project, I also had the following members:
