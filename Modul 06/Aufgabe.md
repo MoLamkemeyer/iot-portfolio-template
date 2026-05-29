@@ -9,6 +9,7 @@
 
 **Teamarbeit** 
 mit [Frederik Bröckling](https://github.com/fbroeckling/Portfolio-of-Frederik-Br-ckling)
+mit [Emil Memetov](https://github.com/emilmemetov02-max)
 
 ## Aufgabe 1: Skalierung von IoT-Systemen
 
