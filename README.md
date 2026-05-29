@@ -30,6 +30,11 @@ My personal profile and expectations, you can find [here](Module01/README.md#tas
   [Reflection 1](Reflections/ref01.md)
 - [Module 2: Hardware and Basic Electronics](Module02/README.md),
   [Reflection 2](Reflections/ref02.md), [Reflection 3](Reflections/ref03.md)
+- [Modul 3:](https://github.com/MoLamkemeyer/iot-portfolio-template/tree/main/Modul%2003)
+- [Modul 4:](https://github.com/MoLamkemeyer/iot-portfolio-template/tree/main/Modul%2004)
+- [Modul 5:](https://github.com/MoLamkemeyer/iot-portfolio-template/tree/main/Modul%2005%20)
+- [Modul 6:](https://github.com/MoLamkemeyer/iot-portfolio-template/tree/main/Modul%2006)
+- [Modul 7:](https://github.com/MoLamkemeyer/iot-portfolio-template/tree/main/Modul%2007%20)
 - ...
 
 ## Miscellanious
