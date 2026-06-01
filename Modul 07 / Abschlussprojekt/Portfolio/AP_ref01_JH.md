@@ -63,7 +63,7 @@ setTimeout(()=>
 ## 2. Die geforderte Projekt-Reflexion**
 
 •	**Wichtigste Erkenntnis (Zusammenfassung):** Das schreiben von Funktion in Node-Red ist sehr mächtig.
-Statt einzelne Bausteine einzufügen ist eine Funktion deutlich sinnvoller.
+Statt einzelne Bausteine einzufügen, ist eine Funktion deutlich sinnvoller.
 
 •	**Das möchte ich mir merken:** Node-Red ist ziemlich super und kann man schnell aufsetzen
 
