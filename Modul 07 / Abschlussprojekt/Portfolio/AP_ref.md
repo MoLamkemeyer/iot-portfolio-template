@@ -41,7 +41,7 @@ Damit mein Knoten mit der zentralen Steuerung kommuniziert, wurden folgende Date
 
 •	**Mein Rat an zukünftige Studierende:** [z. B. Plant die IP- und MQTT-Adressen vor dem Labor fest ein und baut ein Dirty-Prototyping-Modell aus Pappe, um die Hardware-Zonen vorab visuell zu trennen.]
 
-## Was war gut?
+## Was ist gut gelaufen?
 
 •	[z. B. Das Zusammenspiel der automatischen MP3-Sprachdurchsagen mit dem Regensensor-Trigger lief extrem flüssig.]
 
