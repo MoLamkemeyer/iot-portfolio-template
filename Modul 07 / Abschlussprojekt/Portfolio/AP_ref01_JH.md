@@ -19,6 +19,7 @@ Beispiel:
 Node-Red: 
 
 Code für Warte auf RFID Validierung:
+´´´cpp
 let startTime = Date.now();
 let waitTime = 5000; //5 seconds
 let timer = setInterval(()=>
@@ -53,7 +54,7 @@ setTimeout(()=>
     flow.set(msg.topic,null);
     node.send({payload:"NAN"});
 },5000);
-
+´´´
 
 ## 2. Die geforderte Projekt-Reflexion**
 
