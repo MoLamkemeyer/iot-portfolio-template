@@ -58,13 +58,13 @@ Interaktion mit Kommilitonen & Dozenten
 
 •	**Kommunikation im Team:** [z. B. Durch die klare Verteilung der 8 ESP-Boards konnte jeder isoliert arbeiten, während die Logik-Zusammenführung gemeinsam am Hauptbildschirm der zentralen Steuerung stattfand.]
 
-•	**Austausch im Kurs:** [z. B. Kurzer Abgleich mit Gruppe X bezüglich der MQTT-Broker-Stabilität unter hoher Netzlast.]
 
 ## 3. Hilfe und zusätzliche Arbeit
 
 **Erhaltene Hilfe & Feedback**
 
 •	**Wer hat geholfen:** [z. B. Jonathan hat mir bei der Pin-Zuweisung geholfen / Der Dozent gab Feedback zum Audio-Verstärker.]
+
 •	**Nutzen des Feedbacks:** [z. B. Das Feedback war extrem hilfreich, da wir dadurch das Rauschen auf den Lautsprechern durch einen zusätzlichen Kondensator beheben konnten.]
 
 **Geleistete Hilfe & Feedback**
@@ -74,9 +74,6 @@ Interaktion mit Kommilitonen & Dozenten
 •	**Welches Feedback habe ich gegeben:** [z. B. Den Tipp gegeben, die Pull-Up-Widerstände in der Konfiguration zu überprüfen.]
 Eigene Sonderleistungen / Kurs-Beiträge
 
-•	**Vorstellungen/Präsentationen:** [z. B. Ich habe den 5-Minuten-Pitch unseres Szenarios vor dem benachbarten Team übernommen.]
-
-•	**Implementierungen & Fixes:** [z. B. Ich habe das Gehäuse für den RFID-Knoten im Pappmodell konstruiert / Einen kritischen Bug im MQTT-Dauersendeschleifen-Skript behoben, der den Broker zum Absturz brachte.]
 
 ## 4. Visueller Labor-Nachweis (Anhänge)
 
