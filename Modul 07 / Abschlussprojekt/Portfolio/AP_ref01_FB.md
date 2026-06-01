@@ -28,7 +28,7 @@ analog(water, A0);
 
 •	**Mein Rat an zukünftige Studierende:** DOKU von ULNO anschauen und trotzdem Datenblätter der Sensoren anschauen
 
-## Was war gut?
+## Was ist gut gelaufen?
 
 •	Teamarbeit
 
