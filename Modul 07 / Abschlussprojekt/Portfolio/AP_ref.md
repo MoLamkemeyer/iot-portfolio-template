@@ -20,8 +20,7 @@
 
 •	Kommunikations-Protokoll: MQTT über das lokale Schul-WLAN.
 
-**Mein Programmcode** (setup.cpp / Konfiguration)
-C++
+**Mein Programmcode** 
 // [Füge hier deinen exakten C++/IoTempower-Code für deinen Knoten ein]
 
 // Beispiel:
