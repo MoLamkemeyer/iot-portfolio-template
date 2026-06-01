@@ -4,7 +4,7 @@
 
 **Projektname:** Intelligentes Schulwetter- und Sicherheitssystem (Smart School Weather & Safety System)
 
-**Gruppenmitglieder:** Emil, Frederik, Moritz, Jonathan, Minguel
+**Gruppenmitglieder:** Emil, Frederik, Jonathan, Kilian, Minguel, Moritz
 
 **Eigener Name:** [Dein Name]
 
