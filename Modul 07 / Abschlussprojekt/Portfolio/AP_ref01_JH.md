@@ -19,7 +19,8 @@ Beispiel:
 Node-Red: 
 
 Code für Warte auf RFID Validierung:
-´´´
+
+```
 let startTime = Date.now();
 let waitTime = 5000; //5 seconds
 let timer = setInterval(()=>
@@ -44,7 +45,7 @@ if(msg.payload == "e6a5dbf9")
     return msg;
 }
 return;
-
+```
 
 Code für RFID Validierung 2/2
 flow.set(msg.topic,msg.payload);
