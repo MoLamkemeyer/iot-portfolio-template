@@ -1,3 +1,4 @@
+<img width="1321" height="583" alt="Screenshot 2026-06-01 111559" src="https://github.com/user-attachments/assets/474f5807-24de-4aed-b03f-ab69c9db0026" />
 ## Abschlussprojekt Reflexion 1
 
 ## PORTFOLIO-MASTER: Modul 7 – Abschlussprojekt
@@ -101,4 +102,9 @@ Statt einzelne Bausteine einzufügen ist eine Funktion deutlich sinnvoller.
 
 
 ## 4. Visueller Labor-Nachweis (Anhänge)
+
+<img width="1321" height="583" alt="Screenshot 2026-06-01 111559" src="https://github.com/user-attachments/assets/91725e99-d029-4ef8-b1a5-af593dbf293e" />
+
+<img width="1854" height="861" alt="SC2" src="https://github.com/user-attachments/assets/bf89ed32-a4b6-4a1b-a138-8bf2909e56a4" />
+
 
