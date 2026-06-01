@@ -10,7 +10,7 @@
 
 **Eigener Schwerpunkt/Knoten:** [z. B. ESP 4 – LED-Warnsystem]
 
-## 1. Architektur & Technische Umsetzung (Mein Beitrag)**
+## 1. Architektur & Technische Umsetzung (Mein Beitrag)
 
 **Systemstruktur & Knoten-Setup**
 
