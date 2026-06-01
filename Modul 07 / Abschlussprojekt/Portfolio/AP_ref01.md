@@ -47,13 +47,11 @@ Fragen wurden immer offen und gemeinsam geklärt.
 
 •	**Wer hat geholfen:** Teamleistung der Ideensammlung
 
-•	**Nutzen des Feedbacks:** --kein Eintrag--
+•	**Nutzen des Feedbacks:** schnelle Ideenfindung und mehr Ideen gleich bessere Ideen. 
 
 **Geleistete Hilfe & Feedback**
 
 •	**Wem habe ich geholfen:** Kilian bei dem Einrichten des Boden/Feuchtigkeitssensors
-
-•	**Hilfe bekommen:** Team für die Ideen
 
 
 ## 4. Visueller Labor-Nachweis (Anhänge)
