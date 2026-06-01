@@ -14,7 +14,7 @@
 
 Im ersten Projektvorgang wurde von mir nur mein geflashter Wemos D1 mini bereitgestellt und dann habe ich mein Fokus auf Dokumenatation und Erstellung gesetzt, damit alles während der Projektphase live dokumnetiert werden kann. 
 
-## 2. Die geforderte Projekt-Reflexion**
+## 2. Die geforderte Projekt-Reflexion
 
 •	**Wichtigste Erkenntnis (Zusammenfassung):** Der Aufbau der Masters für unser Protfolio und die Reflexionen mussten gut durchdacht werden, um eine schnelle Reibungslose Kommunikation und Dokumentation zu kriegen. Zudem ist eine gute Brainstorming Liste entscheidend für weitere Prozesse. Für die Abschlusspräsentaion wurdne ständig neue Ideen festgehalten. Zudem ist es sehr wichtig für den "Dirty Prototyp" alles aufzuschreiben was nötig isz, sodass man einen Fahrplan kriegt, wie man das am besten umsetzen kann. 
 
