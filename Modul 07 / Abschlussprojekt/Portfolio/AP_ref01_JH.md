@@ -1,4 +1,3 @@
-<img width="1321" height="583" alt="Screenshot 2026-06-01 111559" src="https://github.com/user-attachments/assets/474f5807-24de-4aed-b03f-ab69c9db0026" />
 ## Abschlussprojekt Reflexion 1
 
 ## PORTFOLIO-MASTER: Modul 7 – Abschlussprojekt
