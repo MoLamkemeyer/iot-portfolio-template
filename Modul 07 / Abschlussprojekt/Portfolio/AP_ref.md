@@ -20,13 +20,15 @@
 
 •	Kommunikations-Protokoll: MQTT über das lokale Schul-WLAN.
 
-Mein Programmcode (setup.cpp / Konfiguration)
+**Mein Programmcode** (setup.cpp / Konfiguration)
 C++
 // [Füge hier deinen exakten C++/IoTempower-Code für deinen Knoten ein]
+
 // Beispiel:
 // #define LED_PIN D5
 // led(green_led, LED_PIN);
-Node-RED-Anbindung & MQTT-Topics
+
+**Node-RED-Anbindung & MQTT-Topics:**
 Damit mein Knoten mit der zentralen Steuerung kommuniziert, wurden folgende Datenpunkte definiert:
 •	Subscribed Topic (Eingang zum Knoten): schulwetter/[Mein_Knoten]/[Aktor]/set
 •	Published Topic (Ausgang vom Knoten): schulwetter/[Mein_Knoten]/[Sensor]
