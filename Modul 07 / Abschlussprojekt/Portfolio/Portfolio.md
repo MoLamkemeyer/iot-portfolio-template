@@ -66,6 +66,22 @@ Bis zum finalen Abgabetermin (Dreh des Videos und Portfolio-Abgabe) wurden folge
 
 1. Gruppentreff:
 
-   - Wir haben uns in der gruppe getroffen und uns dafür ein Raum in der IMA (benachbartes Gebäude, indem man sich einen Raum mieten kann) gemietet. Im Anschluss haben wir alle Materialien heraus geholt und gesammelt platziert. Durch die vorherige Gruppeneinteilung konnten wir mit den Projektstart direkt beginnen und der MAngo Router konnte eingerichtet werdje, erste Wemos D1 minis wurdne geflashed, Sensoren wurden sich angeschaut und schlau gemacht wie man diese verknüpft und Ideen für die Abschlusspräsentation wurden gesammelt.
+   - Wir haben uns in der gruppe getroffen und uns dafür ein Raum in der IMA (benachbartes Gebäude, indem man sich einen Raum mieten kann) gemietet. Im Anschluss haben wir alle Materialien heraus geholt und gesammelt platziert. Durch die vorherige Gruppeneinteilung konnten wir mit den Projektstart direkt beginnen und der Mango Router konnte eingerichtet werdje, erste Wemos D1 minis wurdne geflashed, Sensoren wurden sich angeschaut und schlau gemacht wie man diese verknüpft und Ideen für die Abschlusspräsentation wurden gesammelt.
   
-   - 
+   - Die Sensoren und Aktoren wurden mit den Mircocontroller verbunden und jeder sensor und aktor mit den programmcode im iotempower integriert.
+   - esp liste:
+   - ESP1: Wassertand
+   - ESP2: Lichtstärke Helleígkeitssensor
+   - ESP3: LCD Display
+   - ESP4: Temperatursensor und Luftfeucttigkeit
+   - ESP5: Bodemfeuchtigkeitssensor
+   - ESP6: RGBT LED Streifen
+   - ESP7: RFID SCcanner
+   - ESP8: Luftdrucksensor
+   - ESP9: OLED-Display
+
+- dabei wurde die Sensoren udn aktoren immer direkt ins node red eingepflegt und für das dashbaord optimiert
+
+- node-red:
+- ...
+  
