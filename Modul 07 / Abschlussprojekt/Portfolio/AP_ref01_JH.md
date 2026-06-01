@@ -39,13 +39,15 @@ let timer = setInterval(()=>
     }
 },500);
 
+```
+
 Code für RFID Validierung 1/2:
+```
 if(msg.payload == "e6a5dbf9")
 {
     return msg;
 }
 return;
-```
 
 Code für RFID Validierung 2/2
 flow.set(msg.topic,msg.payload);
@@ -55,7 +57,7 @@ setTimeout(()=>
     flow.set(msg.topic,null);
     node.send({payload:"NAN"});
 },5000);
-´´´
+```
 
 ## 2. Die geforderte Projekt-Reflexion**
 
