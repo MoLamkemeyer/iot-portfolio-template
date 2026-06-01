@@ -24,7 +24,7 @@ Im ersten Projektvorgang wurde von mir nur mein geflashter Wemos D1 mini bereitg
 - Eine richtige, ständige und durchdachte Dokumentation ist entscheidend für jetzige, aber auch spätere Prozesse an denen man arbeitet.
 - Eine gute Teamaufteilung ist besonders wichtig, sowie die ständige Unterstützung unterhalb des Teams. 
 
-## Was war gut?
+## Was ist gut gelaufen?
 
 •	Jeder hat aktiv mit garbeitet und war bereit seine FOrtschritte zu teilen 
 
