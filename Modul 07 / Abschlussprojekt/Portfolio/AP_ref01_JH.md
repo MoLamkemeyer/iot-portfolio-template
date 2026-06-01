@@ -19,7 +19,7 @@ Beispiel:
 Node-Red: 
 
 Code für Warte auf RFID Validierung:
-´´´cpp
+´´´
 let startTime = Date.now();
 let waitTime = 5000; //5 seconds
 let timer = setInterval(()=>
