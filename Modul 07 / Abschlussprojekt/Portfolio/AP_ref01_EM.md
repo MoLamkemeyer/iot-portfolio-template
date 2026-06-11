@@ -12,7 +12,7 @@
 
 ## 1. Architektur & Technische Umsetzung (Mein Beitrag)
 
-Jason-Datei Struktur planen
+Json-Datei Struktur planen
 
 **Mein Programmcode** 
 ```
