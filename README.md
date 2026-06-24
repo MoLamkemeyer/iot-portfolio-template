@@ -18,7 +18,7 @@ In my team for the final project, I also had the following members:
 - [Kilian Ridder](https://github.com/KilianR2026/Portfolio-Microcontroller)
 - [Minguel Diehl](https://github.com/mingidiehl/MCP)
 - [Jonathan Hunold](https://github.com/JonathanHunold)
-- <replace these pointy brackets with their full name>, [portfolio link](https://github.com/partner/iot-portfolio)
+- <replace these pointy brackets with their full name>, [portfolio link](https://github.com/emilmemetov02-max/Weather-Station-Group-Project)
 
 Our team final project repository is [here](https://github.com/KilianR2026/Portfolio-Microcontroller/tree/main/Module07)
 
